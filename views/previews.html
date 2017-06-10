@@ -1,0 +1,41 @@
+<div class="sidebar-conversations-header">
+    <!--<img src="../redkix-logo.png" ng-show="state.name == 'previews'" class="redkix-logo" bs-popover data-template="/views/extensionOptions.html" data-placement="bottom" data-animation="am-flip-x" data-auto-close="1" />-->
+    <!--<span class="conversations-title" ng-show="state.name == 'previews'">{{previews ? (previews.length ? ' ' + previews.length + ' Redkix Conversation' + (previews.length > 1 ? 's' : '') : 'Redkix Conversations'): '...'}}</span>-->
+    <span class="conversations-title" ng-show="state.name == 'previews'">Redkix Conversations</span>
+    <!-- <span class="header-button" ng-show="state.name === 'compose'" ng-click="closeComposeDialog()">Back</span> -->
+    <img src="images/backArrow.png" class="back-button-preview" ng-show="state.name === 'compose'" ng-click="closeComposeDialog()"></img>
+    <img src="images/compose.png" class="sidebar-icon-compose" role="button" id="composeNewMessage" ng-click="state.name='compose';composeNewMessage()"></img>
+    <img src="images/rx-close-hover.svg" class="close-x-button" ng-click="closeSidebar()"></img>
+</div>
+
+<md-content flex class="rxxx-preview-area" id="forOverFlown" rx-disable-enter>
+    <div ng-show="previews.length === 0 && !isEmpty" class="loading-state">
+        <div class="rx-spinner">Loading...</div>
+        <p class="message" ng-if='!newUser'>Loading emails...</p>
+    </div>
+    <div ng-show="isEmpty">
+      <div class="world-image">
+        <img src="images/world.png"></img>
+      </div>
+      <p class="no-conversations">NO CONVERSATIONS</p>
+      <p class="nobody">Nobody has shared this URL<br>in any of your Redkix <br>Conversations.</p>
+    </div>
+    <div layout="column" id="previews" class="rxxx-preview-list" ng-class="{ 'reaction-notification-container': selectedFolder.type === 'NOTIFICATIONS' }">
+      <div layout="column" id="previews" class="rxxx-preview-list" style="flex-flow:initial;">
+        <div id="previewsContent" class="flex" style="bottom: 0px; top: 0px; overflow:hidden;">
+            <div class="rxxx-preview-repeater" md-on-demand="" md-item-size="97" ng-repeat="preview in sortedPreviewsAndSections" ng-class="{ 'selected' : preview.selected, 'multi-threaded' : preview.expanded, 'last-preview': visiblePreviews[$index + 1].type==='section' }"
+                id="prev_{{preview.uid}}" ng-click="preview.selected !== true ? (preview.children.length > 1 ? selectDiscussion(preview) : selectDiscussion(preview, preview.children[0])) : ''" tabindex="-1">
+                <ng-include ng-if="preview.type !== 'section'" src="'preview.html'" ng-cloak></ng-include>
+                <section ng-if="preview.type==='section'" class="no-mouse-select">
+                    <md-subheader ng-style2="{'display': (preview.type === 'pinned') ? 'none' : ''}">
+                        {{preview.title}}
+                    </md-subheader>
+                </section>
+            </div>
+            <div style="display:flex;justify-content:center;margin:3px;height:30px;overflow:hidden" ng-show="dynamicItems.getLength() > 0 && hasMore">
+                <div class="rx-spinner rx-spinner-small"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+</md-content>

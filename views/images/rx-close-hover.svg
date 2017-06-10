@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch Beta 41.1 (35375) - http://www.bohemiancoding.com/sketch -->
+    <title>Add Participant Icon</title>
+    <desc>Created with Sketch Beta.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/Conversation/Actions/Close-Button-Hover" transform="translate(-8.000000, -8.000000)" fill="#00AAFF">
+            <g id="Add-Participant-Icon" transform="translate(16.000000, 16.000000) rotate(45.000000) translate(-16.000000, -16.000000) translate(6.000000, 6.000000)">
+                <path d="M11,9 L11,0 L9,0 L9,9 L0,9 L0,11 L9,11 L9,20 L11,20 L11,11 L20,11 L20,9 L11,9 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+{
+    "priority": "12",
+    "name": "linked-in",
+    "urlMatcher": "https:\\/\\/www.linkedin.com\\/in\\/.*",
+    "subjectTemplate": "`LinkedIn profile of: ` + $(`.full-name`).text()",
+    "bodyTemplate": ["`<div style='width:70%;border: 1px solid #ccc'>",
+        "<header style='padding: 0.01em 16px;color: #000!important; background-color: #f1f1f1!important'>",
+        "<h3>Linked in profile of: ` + $(`.full-name`).text() + `</h3>",
+        "</header>",
+        "<div style='padding: 0.01em 16px'>",
+        "<img src='` + $(`.profile-picture img`)[0].src + `' class='linkedin-left linkedin-circle linkedin-margin-right' style='width:60px;float:left;border-radius:50%;margin-right:15;'>",
+        "<p>CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities.</p><br>",
+        "</div>",
+        "</div>`"
+    ]
+
+}

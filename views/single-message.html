@@ -1,0 +1,16 @@
+<div class="md-list-item-text rxxx-message-text" layout="column" ng-style="{'padding': message.isFormatted ? 0 : ''}">
+    <div layout="row">
+        <div class="placeholder" ng-if="!message.isFormatted"></div>
+        <div dir="auto" flex class="message-body" ng-if="message.meetingResponseType">{{ message.sender.getCorrectTitle(true) + ' has ' + (message.meetingResponseType === 'accept' ? 'accepted' : (message.meetingResponseType === 'decline' ? 'declined' : 'tentatively accepted')) + ' this event.' }}</div>
+        <div dir="auto" class="empty-msg" ng-if="(!message.meetingResponseType && !message.meetingRequest) && (!message.bodyHTML || message.bodyHTML.trim() === '')">(No message body)</div>
+        <div dir="auto" simple-text rx-urlify rx-embedify rx-attfy flex class="message-body" ng-class="{'crop': !showFullPage, 'formatted': message.isFormatted}" ng-bind-html="prepareMsg(message.bodyHTML)" ng-if="!message.meetingResponseType && message.bodyHTML && message.bodyHTML !== ''"></div>
+    </div>
+    <div layout="row" ng-repeat="file in message.attachments | attAttachments" class="message-body full-width" ng-bind-html="file.$AttBind"></div>
+    <div layout="row" class="rxxx-attachments" ng-if="message.attachments.length>0">
+        <div class="attachment-wrapper" ng-repeat="attachment in message.attachments" ng-hide="attachment.hideFromView" ng-include="'/views/attachment.html'">
+        </div>
+    </div>
+    <div ng-if="message.quotationBubbles.length > 0 && updateQuoteData()" ng-include="'views/stacked-quote-bubbles.html'">
+    </div>
+    <div class="bottom-padding-and-border" ng-class="{'quotation-bg': message.quotationBubbles.length >= 1}"></div>
+</div>

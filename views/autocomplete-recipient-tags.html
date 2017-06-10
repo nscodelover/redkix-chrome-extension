@@ -1,0 +1,7 @@
+<div class="autocomplete-template">
+    <!-- <div ng-if="!data.isExchangeSearchButton && !data.isExchangeSearchNoResultsMessage"> -->
+    <avatar-initials ng-model="data" context="contextObjectUID"></avatar-initials>
+    <span class="displayName" ng-bind-html="$highlight(liveDisplayName)"></span>
+    <span ng-if="data.contactType !== 'GROUP' || !liveDisplayName" class="email" ng-bind-html="$highlight(data.mailBoxAddress)"></span>
+    <span ng-if="data.contactType === 'GROUP' && data.children.length > 0" class="email">Group with {{data.children.length}} members</span>
+</div>

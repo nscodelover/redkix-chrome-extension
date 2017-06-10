@@ -1,0 +1,10 @@
+<div class="quote-bubble">
+    <span class="forward-message-vertical-line" ng-if="quoteData.quote.sender || quoteData.quote.displayName" ng-style="{background:quoteData.quote.sender ? getAvatarDarkColor(quoteData.quote.sender) : getAvatarDarkColor(quoteData.quote.displayName)}"></span>
+    <span style="width:100%;padding-right:20px;">
+                <div class="farward-message-sender" >
+                    <span ng-if="quoteData.quote.sender || quoteData.quote.displayName" ng-style="{color:getAvatarDarkColor(quoteData.quote.sender ? quoteData.quote.sender : quoteData.quote.displayName)}">{{quoteData.quote.sender ? trustBodyHTML(quoteData.quote.sender.getCorrectTitle(false, message.conversationUID)) : quoteData.quote.displayName }}</span>
+    <span class="date" ng-if="quoteData.quote.receivedDate && quoteData.quote.receivedDate !== 'Invalid date'">{{ quoteData.quote.receivedDate | messageTime }}</span>
+</div>
+<div dir="auto" class="body quotation-bubble" rx-urlify rx-embedify ng-bind-html='prepareMsg(quoteData.quote.bodyHTML)'></div>
+</span>
+</div>

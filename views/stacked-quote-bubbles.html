@@ -1,0 +1,12 @@
+<div ng-init='showPreviousQuotes=false' class="quotation-bubbles-container">
+    <div class="pretty-quotes" ng-show="['forward', 'reply_one'].indexOf(message.flowType) > -1 && !message.quotationBubbles" style="text-align:center">
+        <i class="fa fa-spin fa-refresh fa-2x" style="margin-top:20px"></i>
+    </div>
+    <span class="quotation-bubbles-summary">{{message.quotationBubbles.length + ' quoted message' + (message.quotationBubbles.length>1?'s':'') }}</span>
+    <a style="cursor:pointer" ng-click="showQuotationBubblesView(message)">View {{message.quotationBubbles.length>1?'all':''}}</a>
+    <div class="quote-bubbles" ng-click="showQuotationBubblesView(message)">
+        <div ng-include="'views/quotation-bubble.html'" ng-attr-id="{{message.uid + '-stacked-quote-0'}}" style="x-index:2;"></div>
+        <div class="quote-bubble-second" ng-show="message.quotationBubbles.length>1"> </div>
+        <div class="quote-bubble-third" ng-show="message.quotationBubbles.length>2"> </div>
+    </div>
+</div>

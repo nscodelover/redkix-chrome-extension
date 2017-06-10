@@ -1,0 +1,38 @@
+<div style="background:#FFFFFF;border:1px solid #D4D7DA;border-radius: 4px;font-family: FaktPro-Medium;overflow:hidden;">
+    <a style="color:#F5A623;flex-grow:1;text-align:end;margin-left:15px;background-color:white;padding:1px;" href="{{document.location.href}}">{{$('#key-val')[0].innerText}}</a>
+    <div style="display:flex;flex-direction:row;align-items:center;padding: 0px 0px 0px 12px;">
+        <img src="https://www.cloudo.co/static/img/icons/apps/jira.png" style="width:30px;border-radius:4px;margin-botton:6px;" />
+        <a style="font-size:13px;color:#3A91C5;margin-left:8px;" href="{{document.location.href}}">{{$('#summary-val')[0].innerText}}</a>
+    </div>
+    <div style="background:#F8F9FA;border-top:1px solid #D4D7DA;padding:12px;">
+        <div style="display:flex;align-items:center">
+            <div>Reporter:</div>
+            <div style="height:24px;width:24px;border-radius:2px;margin-left:3px;margin-right:3px;background-image: url({{rxGetDataURLFromImg($('#reporter-val .aui-avatar-inner img'))[0]}})">
+            </div>
+            <div> {{$('#reporter-val')[0].innerText}}</div>
+        </div>
+        <div style="display:flex; justify-content:space-between;margin-top:8px;">
+            <div>
+                <div style="color:#6F7986 ">Type:</div>
+                <div style="display:flex">
+                    <div style="width:16px;height:16px;margin-right:3px;background-image: url({{rxGetDataURLFromImg($('#type-val img'))[0]}});"></div>
+                    <div>{{$('#type-val')[0].innerText}}</div>
+
+                </div>
+            </div>
+            <div>
+                <div style="color:#6F7986 ">Priority:</div>
+                <div style="display:flex">
+                    <div style="width:16px;height:16px;margin-right:3px;background-image: url({{rxGetDataURLFromImg($('#priority-val img'))[0]}});"></div>
+                    <div>{{$('#priority-val')[0].innerText}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="background:#FFFFFF;border-top:1px solid #D4D7DA;padding:12px;">
+        <div style="display:flex;align-items:center">
+            <div>{{$('#description-val')[0].innerText}}</div>
+        </div>
+    </div>
+</div>
+<div style="height:20px;width:100%;margin-top:12px; "></div>

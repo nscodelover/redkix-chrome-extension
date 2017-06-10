@@ -1,0 +1,37 @@
+<div>
+    <br>
+    <div>
+        <div dir="ltr" style="
+        margin-top: 15px;
+        color: black;
+        font-weight: 500;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #eeeeee;
+        margin-bottom: 6px;" ng-if="editableQuotesData.flowType === 'forward'" class="redkix-forward-reply">Begin forwarded message:</div>
+        <hr ng-if="editableQuotesData.flowType === 'reply_one'" class="redkix-forward-reply">
+        <div>
+            <span style="color:grey; font-weight: bold">From: </span>
+            <span style="color:grey; font-weight: bold">{{ editableQuotesData.relatedMsgUserDisplayName }} </span>
+            <span style="color:grey;">&lt;{{ editableQuotesData.relatedMsgUserEmail }}&gt;</span>
+        </div>
+        <div>
+            <span style="color:grey; font-weight: bold">Date: </span>
+            <span style="color:grey;">{{ editableQuotesData.relatedMsgSentDate }}</span>
+        </div>
+        <div ng-if="editableQuotesData.toParticipants">
+            <span style="color:grey; font-weight: bold">To: </span>
+            <span style="color:grey;" ng-repeat="contact in editableQuotesData.toParticipants">{{ contact | displayname:editableQuotesData.contextObjectUID }} &lt;{{ contact.mailBoxAddress }}&gt;{{$last ? '' : ', '}}</span>
+        </div>
+        <div ng-if="editableQuotesData.ccParticipants && editableQuotesData.ccParticipants.length !== 0">
+            <span style="color:grey; font-weight: bold">Cc: </span>
+            <span style="color:grey;" ng-repeat="contact in editableQuotesData.ccParticipants">{{ contact | displayname:editableQuotesData.contextObjectUID }} &lt;{{ contact.mailBoxAddress }}&gt;{{$last ? '' : ', '}}</span>
+        </div>
+        <div ng-if="editableQuotesData.subject">
+            <span style="color:grey; font-weight: bold">Subject: </span>
+            <span style="color:grey;">{{ editableQuotesData.subject }}</span>
+        </div>
+        <div>&nbsp;</div>
+        <div style=" margin-bottom: 11px;font-weight: 500;" ng-bind-html="editableQuotesData.parsedQuotes" ng-if="editableQuotesData.parsedQuotes">
+        </div>
+    </div>
+</div>

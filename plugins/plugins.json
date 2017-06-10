@@ -1,0 +1,3 @@
+{
+    "plugins": ["simpleUrl.json", "jira.json", "salesForceOpportunity.json", "linkedIn.json", "dropboxPaper.json", "dropbox.json"]
+}

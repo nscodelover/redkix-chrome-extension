@@ -1,0 +1,8 @@
+{
+    "priority": "9",
+    "name": "dropbox",
+    "urlMatcher": ".*.dropbox.com\\/home\\/.*",
+    "subjectTemplate": "url = document.location.href; url.slice(url.lastIndexOf('=')+1).replace(RegExp(`\\\\+`,`g`),` `)",
+    "bodyTemplateFile": "plugins/dropboxPaperTemplate.html",
+    "searchQuery": "url = document.location.href; url.slice(url.lastIndexOf('=')+1).replace(RegExp(`\\\\+`,`g`),` `)"
+}

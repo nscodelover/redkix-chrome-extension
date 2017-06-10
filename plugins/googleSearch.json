@@ -1,0 +1,7 @@
+{
+    "priority": "10",
+    "name": "google-search",
+    "urlMatcher": "http.?:\\/\\/www.google..*q=.*",
+    "subjectTemplate": "Google search for \"$(\"[name='q']\").value\"",
+    "bodyTemplate": "'Conversation about: ' + {{url}}"
+}

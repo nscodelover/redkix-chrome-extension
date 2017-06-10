@@ -1,0 +1,46 @@
+<div class="rxxx-preview-item" ng-style="{height: preview.expanded && preview.selected ? 72 + (preview.children.length * 57) : 97}" ng-class="{'show-threads': preview.expanded && preview.selected}">
+    <div class='rxxx-notification'>
+        <span class="notification-item read-notification" ng-show="preview.children.length < 2">
+        </span>
+        <span class="notification-item unread-notification" ng-show="preview.children.length < 2 && showUnreadDetermine(preview)">
+        </span>
+        <i class="icon triangle" ng-show="preview.children.length > 1" ng-class="{'icon-inbox-expand-unread':showUnreadDetermine(preview) && !(preview.selected && !preview.expanded), 'icon-inbox-expand':!showUnreadDetermine(preview) || (preview.selected && !preview.expanded), 'fa-rotate-90': preview.selected && preview.expanded}"
+            ng-click="preview.expanded = !preview.expanded" tabindex="-1"></i>
+    </div>
+    <div class="rxxx-right-padding-area">
+        <!-- <i class="icon icon-inbox-forward" ng-hide="selectedPreview || preview.children.length === 1 || (preview.isChat && selectedFolder.type === rxConsts.FOLDER_TYPE.CONTACT)"></i> -->
+    </div>
+    <div class="rxxx-preview-padding" ng-class="{'rxxx-preview-padding-thread-open': preview.expanded && preview.selected}" ng-click="preview.expanded = !preview.expanded && preview.children.length > 1" tabindex="-1">
+        <div class="rxxx-preview-inner" ng-class="{'previewUnread' : (preview.unreadCount>0) }">
+            <div class="rxxx-participants-line">
+                <span ng-if="!preview.isChat" over-flown='forOverFlown' class="participants preview-byline" ng-class="showUnreadDetermine(preview) ? 'blue-text' : ''">
+                    {{ preview.byline}}
+                </span>
+                <!-- is the removeChat change something I talked with buck about? -->
+                <span class="preview-last-replier" ng-show="preview.isChat" ng-class="showUnreadDetermine(preview) ? 'blue-text' : ''">
+                    {{ preview.subject }}
+                </span>
+                <span class="date" ng-show="preview.sentState === rxConsts.SENT_STATE.SENT" am-time-ago="isInSearchFolder ? preview.searchActivityDate : preview.lastActivityDate"></span>
+            </div>
+            <div class="subject" ng-show="!preview.isChat">
+                {{((!preview.subject || preview.subject.trim() === '') ? '(No subject)' : preview.subject)}}
+            </div>
+            <div class="subject" ng-show="preview.isChat">
+                <span class="chat" ng-class="showUnreadDetermine(preview) ? 'icon-new-chat-unread' : 'icon-new-chat-read'"></span><span class="chat-text">Chat</span>
+            </div>
+            <div class="body" ng-hide="preview.sentState === rxConsts.SENT_STATE.FAILED && !preview.children[0].draftPreview" ng-class="{'body-thread-open': preview.expanded && preview.selected}">
+                <div class="draft" ng-show="preview.children[0].draftPreview">DRAFT</div>{{preview.children[0].draftPreview?preview.children[0].draftPreview :(!preview.bodyPreview || preview.bodyPreview.trim() === '') ? '(No message body)' : preview.bodyPreview}}
+            </div>
+            <div ng-show="preview.sentState === rxConsts.SENT_STATE.FAILED" class="error-message">
+                <span class="icon-preview-error error-message-type"></span>Message sent failure</div>
+        </div>
+    </div>
+    <div class="white-bed" ng-class="{'white-bed-thread-open': preview.expanded && preview.selected}"></div>
+    <div class="threads rx-thread-popper" ng-class="{'threads-thread-open': preview.expanded && preview.selected}">
+        <div class="rxxx-preview-threads">
+            <div class="rxxx-preview-repeater" ng-class="{ 'selected' : thread.selected }" ng-repeat="thread in preview.children | orderBy : ['-lastActivityDate', 'uid']" id="prev_{{thread.uid}}" ng-click="preview.selected === true && thread.selected !== true ? selectDiscussion(preview, thread) : ''" tabindex="-1">
+                <ng-include src="'/views/thread.html'"></ng-include>
+            </div>
+        </div>
+    </div>
+</div>

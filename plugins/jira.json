@@ -1,0 +1,9 @@
+{
+    "priority": "12",
+    "name": "jira-defect",
+    "urlMatcher": ".*.atlassian.net.*browse.*",
+    "subjectTemplate": "'Jira issue ' + $('#key-val').text() +':' + $('#summary-val').text()",
+    "searchQuery": "document.location.href.slice(document.location.href.lastIndexOf('/')+1)",
+    "bodyTemplate": "'Jira issue' + $('#key-val').text() +':' + $('#summary-val').text()",
+    "bodyTemplateFile": "plugins/jiraTemplate.html"
+}

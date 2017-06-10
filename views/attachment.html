@@ -1,0 +1,21 @@
+<div layout="column" ng-class="{'attachemnt-no-download' : attachment.percentCompleted >= 0}" ng-click="attachment.originalMessage && _selectAttachment(attachment)">
+    <div layout="row" class="attachment">
+        <i class="icon icon-doc-generic"></i>
+        <div flex class="filename">{{100 > attachment.percentCompleted ?attachment.percentCompleted===0 ? 'Prepare to upload \n': 'Uploading \n' : ''}}{{attachment.name || '_'}} </div>
+    </div>
+    <!-- For Compose message dialog -->
+    <div layout="row" class="attachment-bottom" ng-if="attachment.percentCompletedText || attachment.status">
+        <div layout="column" style="align-self:center;width:100%;">
+            <span flex class="file-size">{{attachment.percentCompletedText}}</span>
+            <md-progress-linear class="upload-progress" md-mode="determinate" ng-if="attachment.percentCompleted < 100" ng-show="attachment.percentCompleted>0 &&  attachment.percentCompleted < 100" ng-value="attachment.percentCompleted"></md-progress-linear>
+        </div>
+        <button ng-if="!attachment.originalMessage" class="remove icon-remove-attachment" ng-click="attachment.remove()" style="align-self:center;"></button>
+    </div>
+    <!-- For single message view -->
+    <div layout="row" class="attachment-bottom" ng-if="!attachment.percentCompletedText && !attachment.status">
+        <a flex style="align-self:center;cursor:pointer" ng-click="_selectAttachment(attachment)">{{ ((!attachment.creator || attachment.creator === activeUser) && attachment.size === null) ? 'Still uploading...' : 'Download'}}</a>
+        <span flex class="file-size" style="align-self:center;text-align:end;" ng-show="attachment.size > 0">{{attachment.getFileSizeText()}}</span>
+        <button ng-if="!attachment.originalMessage" class="remove icon-remove-attachment" ng-click="attachment.remove()" style="align-self:center;"></button>
+
+    </div>
+</div>

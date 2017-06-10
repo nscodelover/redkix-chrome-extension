@@ -1,0 +1,97 @@
+<div class="rxxx-message-single" id="msg_{{message.uid}}" ng-class="{'cancelled-invite': (message.meetingRequest && message.meetingRequest.isMeetingCancelled)}" ng-hide="message.messageHidden" ng-controller="messageDisplayCtrl" ng-model="x" ng-mouseover="x=true" ng-mouseleave="x=false">
+    <div ng-if="message.meetingRequest">
+        <meeting-invite message="message"></meeting-invite>
+    </div>
+    <div class="icon-action-container">
+        <i class="icon-actions-more" bs-dropdown aria-haspopup="true" aria-expanded="false" placement="left" container='.rxxx-discussion' style="{margin-right:-12px;position:absolute}"></i>
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                <a ng-click="markUnreadFromHere(message)" class="menu-action no-mouse-select">
+                        &nbsp;Mark unread from here
+                    </a>
+            </li>
+            <li ng-if="!messageDetails.show">
+                <a ng-click="messageDetails.show = !messageDetails.show" class="menu-action no-mouse-select">
+                        &nbsp;Message details
+                    </a>
+            </li>
+            <!--li ng-if="message.sender">
+                <a ng-click="replyOne()" class="menu-action no-mouse-select">
+                        &nbsp;Reply to {{message.sender.getCorrectTitle(true)}}
+                    </a>
+            </li>
+            <li ng-if="message.getAllRecipients().length > 1">
+                <a ng-click="replyAll()" class="menu-action no-mouse-select">
+                        &nbsp;Reply all
+                    </a>
+            </li>
+            <li> <a ng-click="forward()" class="menu-action no-mouse-select">
+                        &nbsp;Forward
+                    </a>
+            </li-->
+        </ul>
+    </div>
+    <div class='rxxx-notification'>
+        <span class="notification-item-corner icon velocity-transition-fadeIn" ng-class="preview.selected ? 'icon-inbox-error-selected' : 'icon-inbox-error'" ng-show="message.sentState === rxConsts.SENT_STATE.FAILED"></span>
+    </div>
+    <div layout="column" class="by-line" ng-class="{'message-details-bg' : messageDetails.show}" ng-hide="message.messageHidden">
+        <div layout="row" style=" padding: 7px 0px;justify-content: center;align-items: center;">
+            <avatar-initials ng-model="message.sender" context="message.conversationUID"></avatar-initials>
+            <div flex layout="row" class="displayname-and-more">
+                <span class="display-name">
+                                <span class="name">{{message.sender | displayname:message.conversationUID}}</span>
+                <span class="address" ng-if="messageDetails.show">({{message.sender.mailBoxAddress}})</span>
+                </span>
+            </div>
+            <h3 flex class="date" ng-show="x">{{message.receivedDate | messageTime}}</h3>
+        </div>
+        <div layout="column" class="message-details message-details-bg" ng-if="messageDetails.show">
+            <div layout="row">
+                <div class="placeholder"></div>
+                <div layout="column" style="width:100%">
+                    <div class="to-and-cc">
+                        <div ng-if="message.toMailBoxes.length > 0">
+                            <span class="recipient-type">To:</span>
+                            <div layout="row" style="flex-wrap: wrap">
+                                <div ng-repeat="contact in message.toMailBoxes" layout="row" style="margin-right:6px">
+                                    <rx-contact-chip contact="contact"></rx-contact-chip>
+                                    <span class="message-details-mail-address">{{contact.mailBoxAddress}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-if="message.ccMailBoxes.length > 0">
+                            <span class="recipient-type">Cc:</span>
+                            <div layout="row" style="flex-wrap: wrap">
+                                <div ng-repeat="contact in message.ccMailBoxes" layout="row" style="margin-right:6px">
+                                    <rx-contact-chip contact="contact"></rx-contact-chip>
+                                    <span class="message-details-mail-address">{{contact.mailBoxAddress}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-if="message.bccMailBoxes.length > 0">
+                            <span class="recipient-type">Bcc:</span>
+                            <div layout="row" style="flex-wrap: wrap">
+                                <div ng-repeat="contact in message.bccMailBoxes" layout="row" style="margin-right:6px">
+                                    <rx-contact-chip contact="contact"></rx-contact-chip>
+                                    <span class="message-details-mail-address">{{contact.mailBoxAddress}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="message-details-subject-row" layout="row">
+                <div class="message-details-subject">{{message.subject}}</div>
+                <div class="message-details-btn-hide" ng-click="messageDetails.show =! messageDetails.show">Hide details</div>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <ng-include src="'/views/single-message.html'" style="flex-grow: 1;"></ng-include>
+    </div>
+</div>
+<div class="invite-status-separator" ng-show="message.meetingRequest && (message.meetingRequest.isMeetingCancelled || message.meetingRequest.isMeetingUpdated)">
+    <span class="separator-text">{{message.meetingRequest.isMeetingUpdated ? 'Event Updated' : 'Event Cancelled'}}</span>
+    <span class="separator-line">
+    </span>
+</div>

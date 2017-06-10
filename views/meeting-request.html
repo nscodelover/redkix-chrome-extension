@@ -1,0 +1,27 @@
+<div class="meeting-request" layout="column">
+    <div class="invite-details" layout="row">
+        <div class="date" layout="column">
+            <div class="month" ng-bind="invite.month">
+            </div>
+            <div class="day" ng-bind="invite.day">
+            </div>
+        </div>
+        <div class="more-details" layout="column" flex>
+            <div ng-repeat="detail in invite.details" layout="row">
+                <i ng-class="detail.icon"></i>
+                <span ng-bind-html="detail.text"></span>
+            </div>
+        </div>
+    </div>
+    <div class="invite-actions" layout="row" ng-show="!message.meetingRequest.isMeetingUpdated && !message.meetingRequest.isMeetingCancelled && message.meetingRequest.meetingOrganizerMailBox && activeMailBoxUID !== message.meetingRequest.meetingOrganizerMailBox.uid">
+        <div class="answer" ng-show="message.meetingRequest.meetingResponseType && message.meetingRequest.meetingResponseType !== 'none'">
+            <i ng-class="answers[message.meetingRequest.meetingResponseType].iconClass"></i>
+            <span ng-class="answers[message.meetingRequest.meetingResponseType].textClass" ng-bind="answers[message.meetingRequest.meetingResponseType].text"></span>
+        </div>
+        <div class="buttons" ng-show="changeResponseMenuOpened || message.meetingRequest.meetingResponseType === 'none'" layout>
+            <button class="rx-btn rx-btn-green" ng-click="initiateInviteAnswer('accept')">Accept</button>
+            <button class="rx-btn rx-btn-red" ng-click="initiateInviteAnswer('decline')">Decline</button>
+            <button class="rx-btn" ng-click="initiateInviteAnswer('tentative')">Maybe</button>
+        </div>
+        <button class="rx-btn change" ng-click="openChangeResponse()">Change</button>
+    </div>

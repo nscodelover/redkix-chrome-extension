@@ -1,0 +1,70 @@
+<div style="width:644px;background-color:transparent;" id="sidebar" ng-app="redKix" ng-controller="sidebarController" ng-init="state={name:'previews'}">
+    <div ng-controller="loginCtrl" class="rx-app" style="height:100%;display:flex;transition: transform .6s;" ng-class="state.name==='discussion'?'translate-left':''">
+        <span ng-include="'previews.html'" ng-controller="previewsCtrl" ng-if="!isLoggedOut" class="rxxx-previews" style="width:322px"></span>
+        <md-content layout="column" flex class="rxxx-discussion" ng-include="'/views/conversation.html'" ng-controller="discussionCtrl" style="height:100%" ng-if="!isLoggedOut">
+        </md-content>
+        <div class="login-body" ng-show="isLoggedOut" ng-include="'/views/loginPage.html'">
+        </div>
+    </div>
+    <link rel="stylesheet" href="../styles/libs/angular-material.min.css" />
+    <link rel="stylesheet" href="../styles/libs/ngDialog.min.css" />
+    <link rel="stylesheet" href="../styles/libs/ngDialog-theme-default.min.css" />
+    <link rel="stylesheet" href="../styles/libs/bootstrapimporter.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
+
+    <link rel="stylesheet" href="../libs/ng-tags-input.min.css" />
+    <link rel="stylesheet" href="../styles/extension.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script src="../libs/emitter.js"></script>
+    <script src="../bower_components/angular.js"></script>
+    <script src="../bower_components/cheet.min.js"></script>
+    <script src="../bower_components/angular-route.min.js"></script>
+    <script src="../bower_components/jquery.min.js"></script>
+    <script src="../bower_components/angular-animate.min.js"></script>
+    <script src="../bower_components/angular-aria.min.js"></script>
+    <script src="../bower_components/angular-cookies.js"></script>
+    <script src="../bower_components/angular-sanitize.min.js"></script>
+    <script src="../bower_components/angular-material.min.js"></script>
+    <script src="../bower_components/ngDialog.min.js"></script>
+    <script src="../bower_components/tinymce.min.js"></script>
+    <script src="../bower_components/socket.io.js"></script>
+    <script src="../libs/hotkeys.js"></script>
+    <script src="../libs/crypto-js.js"></script>
+    <script src="../bower_components/angular-ui-tinymce.min.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
+    <script src="../bower_components/underscore-min.js"></script>
+    <script src="../bower_components/velocity.min.js"></script>
+    <script src="../bower_components/velocity.ui.min.js"></script>
+    <script src="../bower_components/angular-velocity.min.js"></script>
+    <script src="../bower_components/Autolinker.min.js"></script>
+    <script src="../bower_components/angular-strap.min.js"></script>
+    <script src="../libs/ng-tags-input.js"></script>
+    <script src="../services/initialize.js"></script>
+    <script src="../services/appConfig.js"></script>
+    <script src="../services/rxActiveUserService.js"></script>
+    <script src="../services/rxConfigurationService.js"></script>
+    <script src="../services/rxApiUrl.js"></script>
+    <script src="../services/rxEventEmitter.js"></script>
+    <script src="../services/rxEmailSanitizer.js"></script>
+    <script src="../services/rxModelService.js"></script>
+    <script src="../services/rxOutbound.js"></script>
+    <script src="../services/rxRepoService.js"></script>
+    <script src="../services/rxUtilities.js"></script>
+    <script src="../services/rxDataApi.js"></script>
+    <script src="../services/rxRealTime.js"></script>
+    <script src="../services/rxRealTimeManager.js"></script>
+    <script src="../services/rxPresenceService.js"></script>
+    <script src="../controllers/initialize.js"></script>
+    <script src="../controllers/loginApp.js"></script>
+    <script src="../controllers/sidebarController.js"></script>
+    <script src="../controllers/composeModalController.js"></script>
+    <script src="../controllers/previewsController.js"></script>
+    <script src="../controllers/discussionController.js"></script>
+    <script src="../controllers/newReplyController.js"></script>
+    <script src="../controllers/messageDisplayController.js"></script>
+    <script src="../filters/filters.js"></script>
+    <script src="../directives/directives.js"></script>
+    <script src="../directives/pagination-scroll.js"></script>
+</div>

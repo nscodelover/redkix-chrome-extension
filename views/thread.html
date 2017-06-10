@@ -1,0 +1,24 @@
+<div class="rx-thread-item" ng-mouseover="thread.updateDateStringFormat()">
+    <div class="rx-preview-content">
+        <div class="rx-preview-details">
+            <div class="rxxx-first-line-container">
+                <div class='rxxx-notification'>
+                    <i rx-class-without-animation="thread.notificationIconClass"></i>
+                </div>
+                <span class="rxxx-first-line" rx-class-without-animation="thread.unreadMessagesCount > 0 ? 'rx-unread' : ''">
+          <span class="rx-truncate">{{ thread.byline }}</span>
+                <div class="rx-spacer"></div>
+                <span class="date" rx-show-without-animation="thread.sentState === rxConsts.SENT_STATE.SENT">{{ isInSearchFolder ? thread.formatedSearchActivityDate : thread.formatedLastActivityDate }}</span>
+                </span>
+                <div class="rx-body-container" rx-show-without-animation="thread.sentState !== rxConsts.SENT_STATE.FAILED || thread.draftPreview">
+                    <div class="draft" rx-show-without-animation="thread.draftPreview">DRAFT</div>
+                    <span class="last-replier" rx-show-without-animation="thread.lastReplier && !thread.draftPreview">{{ thread.lastReplier.getCorrectTitle(true, false, false, true) }}</span><span class="rx-colon">:</span>
+                    <span class="rx-body">{{ thread.draftPreview || ((!thread.bodyPreview || thread.bodyPreview.trim() === '') ? '(No message body)' : thread.bodyPreview) }}</span>
+                </div>
+                <div class="error-message" rx-show-without-animation="thread.sentState === rxConsts.SENT_STATE.FAILED && !thread.draftPreview">
+                    <i class="icon-rx-error"></i>
+                    <span class="error-message-text">Message unsent. It will send automatically once a connection to Redkix is re-established.</span>
+                </div>
+            </div>
+        </div>
+    </div>

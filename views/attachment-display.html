@@ -1,0 +1,21 @@
+<div ng-controller="fileDisplayCtrl" ng-show="file" class="rxxx-attachment-display">
+    <div ng-switch="file.type" layout>
+        <iframe ng-switch-when="pdf" id="previewer-frame" class="embed" frameborder="0"></iframe>
+        <iframe ng-switch-when="other" id="previewer-frame" class="embed" frameborder="0"></iframe>
+        <div ng-switch-when="image" class="file-display-image" layout-fill ng-style="{'max-height': dynamicHeight + 'px'}">
+            <div flex min-width="100px">
+            </div><img id="previewer-frame2" ng-src="" style-photo-attachment>
+            <div flex min-width="100px">
+            </div>
+        </div>
+    </div>
+    <md-subheader ng-show="file">
+        <div class="file-bar">
+            <i class="icon-attachment-file"></i>
+            <h1>{{file.name}}</h1>
+            <a class="file-bar-button-view" ng-click="viewFull()">View</a>
+            <a class="file-bar-button-download" ng-click="downloadFile()">Download</a>
+            <div class="versionNum" id="versionSelector" ng-click="versionSelector()">V{{file.versionNumber}}</div>
+        </div>
+    </md-subheader>
+</div>

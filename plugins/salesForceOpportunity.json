@@ -1,0 +1,9 @@
+{
+    "priority": "10",
+    "name": "salesForce-opporunity",
+    "urlMatcher": "https:\/\\/na30.lightning.force.com\\/one\\/one.app#\\/sObject.*",
+    "subjectTemplate": "$(`.uiOutputText:visible`)[0].innerText + ` opportunity`",
+    "bodyTemplateFile": "plugins/salesForceOpportunityTemplate.html",
+    "searchQuery": "`$redkix$` + (document.location.href.lastIndexOf(\"view\") != -1 ? document.location.href.substring(0, document.location.href.lastIndexOf(\"view\")) : document.location.href) + `$redkix$`",
+    "selectorsForElementsWithFixedPosition": ["#oneHeader", ".forceHighlightsStencilDesktop"]
+}

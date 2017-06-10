@@ -1,0 +1,134 @@
+<!--<div class="sidebar-conversations-header">-->
+    <!-- <img src="../redkix-logo.png" class="redkix-logo" bs-popover data-template="/views/extensionOptions.html" data-placement="bottom" data-animation="am-flip-x" data-auto-close="1" /> -->
+    <!-- <span class="conversations header-button" ng-click="state.name = 'previews';backToPreviews();">Back</span> -->
+    <!-- <span class="close-sidebar header-button" ng-click="closeSidebar()">Close</span> -->
+    <!--<img src="images/backArrow.png" class="back-button" ng-click="state.name = 'previews';backToPreviews();"></img>-->
+    <!--<img src="images/rx-close-hover.svg" class="close-x-button1" ng-click="closeSidebar()"></img>-->
+<!--</div>-->
+<!-- Quotation bubbles hidden view. We don't use ng-include since we need it to be ready very fast for the animation effect -->
+<div class="quote-bubbles-container" ng-if="quotationBubblesView.shouldShow">
+    <div flex class="rxxx-toolbar upper-header-holder"> 
+        <div id="upper-header" class="upper-header">
+            <div class="quote-view-title">Quoted message{{quotationBubblesView.quotationBubbles.length > 1?'s':''}} from {{ quotationBubblesView.message.sender.getCorrectTitle(false, quotationBubblesView.message.conversationUID) }}
+            </div>
+            <a style="float:right;cursor:pointer;color:#46A2DA;font-size:13px;margin-right:24px" ng-click="hideQuotionBubblesView()">Close</a>
+        </div>
+    </div>
+    <div id="quotes-content" pre-scroll='preScrollControl' style="overflow: auto;" flex ng-click="hideQuotionBubblesView()">
+        <div style="opacity:0" ng-repeat="quoteData in quotationBubblesView.quotationBubbles | orderBy : msg.receivedDate : true" ng-include="'views/quotation-bubble.html'" ng-attr-id="{{'quote-' + quoteData.quote.index}}" ng-click="$event.stopPropagation()">
+        </div>
+        <div ng-repeat="quoteData in quotationBubblesView.quotationBubbles | orderBy : msg.receivedDate : true" class="quote-bubble-dup" ng-attr-id="{{'quote-dup-' + quoteData.quote.index}}" ng-include="'views/quotation-bubble.html'"></div>
+        <div id="quotes-view-bottom" style="margin-top: 13px;"></div>
+    </div>
+</div>
+<!-- HEADER: top toolbar and subject area -->
+<div class="rxxx-toolbar" ng-style="{opacity:quotationBubblesView.shouldShow?0:1}" rx-copy-text-only=".subject">
+    <div layout="row" flex class="toolbar-centering">
+        <div flex class="upper-header-holder">
+            <div id="upper-header" ng-show="selectedThread" class="upper-header">              
+                <div class="subject">
+                    <img src="images/backArrow.png" class="back-button" ng-click="state.name = 'previews';backToPreviews();"></img>
+                    <p class="subject-display">
+                        {{(!selectedThread.subject || selectedThread.subject.trim() === '') ? (discussionLoaded ? '(No subject)' : '') : (selectedThread.subject | cut:true:30:' ...')}}
+                    </p>
+                    <div class="names">
+                        <rx-contact-chip ng-repeat="contact in conversationByline" contact="contact" chip-counter-object="chipCounterObject" chip-index="$index"> </rx-contact-chip>
+                    </div>
+                    <div class="expanded-div">
+                        <span ng-show="othersCounter() > 0" ng-style="{'margin-left':chipCounterObject.offsetsFromRight[chipCounterObject.firstLineContactsCounter-1]+'px'}"> & {{othersCounter() > 1 ? othersCounter() + ' others' : ' one other'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Body: Bubble area -->
+<div class="empty-chat-conversation" ng-show="selectedThread.isChat && unreadMessages.length === 0 && readMessages.length === 0">
+    <span class="description" ng-show="selectedThread.parents[0].parents.length === 1">
+        Type a message below to start your chat with {{ selectedThread.parents[0].parents[0].contact.getDisplayName()}}
+    </span>
+    <span class="description" ng-show="selectedThread.parents[0].parents.length > 1">
+        Wooosh! Chat history moved to archive. Type a message below to start a new chat.
+    </span>
+</div>
+<md-content flex class="rxxx-content" pre-scroll2='preScrollControl' layout="column" id="conversation-content" rx-fix-scroll rx-fix-scroll-by="activateScroll" rx-fix-scroll-delta="92" ng-class="{'background-blur':quotationBubblesView.shouldShow}">
+    <div>
+        <!-- <ng-include src="'/views/attachment-display.html'" style=""></ng-include> -->
+    </div>
+    <md-list class="rxxx-message-list" tabindex="2" ng-style="{'margin':marginToTriggerInView + 'px'}">
+        <div pagination-scroll="message in readMessages" ng-class="{'failed' : message.sentState === rxConsts.SENT_STATE.FAILED}">
+            <ng-include src="'/views/single-message-wrapper.html'"></ng-include>
+        </div>
+    </md-list>
+    <!--<div class="unread-div" ng-class="!readMessages.length ? 'unread-div-is-first-from-top' : ''" ng-show="discussionLoaded && unreadCount && shouldShowUnreadLine">
+        <div class="unread-div-notification" id="unread_seperator_line"></div>
+        <div class="unread-div-text">{{supressSetRead? '' : unreadCount }} unread message{{unreadCount > 1 ? 's' : ''}}</div>
+        <div class="unread-div-line"></div>
+    </div>-->
+    <div id="unread_seperator_line_{{selectedThread.uid}}" class="unread-div" ng-class="!readMessages.length ? 'unread-div-is-first-from-top' : ''" ng-show="discussionLoaded && unreadCount && shouldShowUnreadLine">
+        <div class="unread-div-container"></div>
+        <div class="unread-div-line unread-div-line-left"></div>
+        <div class="unread-div-text">unread</div>
+        <div class="unread-div-line unread-div-line-right"></div>
+    </div>
+    <!-- New messages list -->
+    <md-list class="rxxx-message-list" style="margin-top: -12px;">
+        <div class="rxxx-message-page">
+            <div ng-repeat="message in unreadMessages">
+                <ng-include src="'/views/single-message-wrapper.html'"></ng-include>
+            </div>
+        </div>
+    </md-list>
+    <!--<md-list class="rxxx-message-list rxxx-unread-messages-list">
+        <div class="rxxx-message-page">
+            <div ng-repeat="message in unreadItemsFetcher.collection track by message.uid">
+                <ng-include src="'/views/single-message-wrapper.html'"></ng-include>
+            </div>
+            <div ng-show="unreadItemsFetcher.hasNextPage()" style="display:flex;justify-content:center;margin-bottom:-38px;height:30px;overflow:hidden;">
+                <div class="rx-spinner rx-spinner-small" style="position:relative;z-index:2"></div>
+            </div>
+        </div>
+    </md-list>-->
+    <!-- <span class="profile-placement" ng-repeat="user in typingUsers | typingOnce">
+    <avatar-initials class="img-circle userAvatar" user="user"></avatar-initials>
+</span> -->
+    <span class="typing-users" ng-show="(typingUsers | typingOnce).length > 0">
+    {{typingUsers | typingOnce | displayname:selectedThread:true }}{{((typingUsers | typingOnce).length === 1) ? ' is typing...' : ((typingUsers | typingOnce).length > 1) ? ' are typing...' : ''}}
+</span>
+</md-content>
+<!-- FOOTER: Reply area -->
+<md-toolbar class="rxxx-editor" ng-form="replyForm" ng-hide="!selectedThread" ng-class="{'dialog-background-blurred':quotationBubblesView.shouldShow}">
+    <div class="border-proxy" layout="column" ng-controller="newReplyCtrl" keep-scroll-at-bottom>
+        <div layout="row" class="avatar-and-editor" ng-click="focusEditor()">
+            <avatar-initials id='userEditorAvatar' ng-model="userData"></avatar-initials>
+            <div flex layout="column" class="inner-reply-box" id="innerEditor">
+                <div class="contenteditable mce-tinymce" ui-tinymce="tinymceOptionsInline" spellcheck="true" placeholder="reply all" ng-model="newMessageBodyHTML" id="tB2"></div>
+            </div>
+        </div>
+        <div class="rxxx-attachments attachments-padding-left" layout="row" ng-class="{'no-content': showingFiles.length === 0 }">
+            <div class="attachment-wrapper" ng-repeat="attachment in showingFiles = (files | filter : {ignore : '!true'})" ng-include="'/views/attachment.html'"></div>
+        </div>
+        <div class="editor-buttons-bar" layout="row" ng-class="{'editor-buttons-bar-displayer': showInlineEditor}" ng-mousedown="forceEditorOpen()" ng-click="focusEditor()">
+            <!--<div ng-model="$parent.$parent.myFiles" ngf-select ngf-multiple="true" style="margin:auto">
+                <span class="btn-attach">
+                <i class="fa fa-paperclip fa-rotate-90"></i>Attach
+            </div>-->
+            <div class="btn-msgcontrol" flex>
+                <button class="btn btn-send" ng-disabled="!replyForm.$valid" ng-click="postReply();" id='sendReplyBtn'>SEND</button>
+                <button class="btn btn-discard" ng-click="discard();$event.stopPropagation();">DISCARD</button>
+            </div>
+        </div>
+    </div>
+</md-toolbar>
+<div class="discussion-overlay" ng-show="showOverlay || (newMessages.length === 0 &&  oldMessagesSorted.length === 0 && !selectedThread.isChat)" layout="column" layout-align="start center">
+    <div ng-if="selectedConversations.length > 1">
+        <div>
+            {{2}} conversations selected
+        </div>
+        <div class="paper-stack icon-bulk-item">
+        </div>
+    </div>
+    <!-- <div ng-if="selectedFile">
+        <ng-include src="'/views/attachment-display.html'" style=""></ng-include>
+    </div> -->
+</div>

@@ -1,0 +1,5 @@
+<div layout="row" class="contact-tag">
+    <avatar-initials ng-model="data" context="$parent.$parent.contextObjectUID"></avatar-initials>
+    <span>{{ data.hasOwnProperty('getCorrectTitle') ? data.getCorrectTitle(false, $parent.$parent.contextObjectUID) : data.mailBoxAddress}}</span>
+    <a class="icon-modal-close-after remove-button" ng-click="$removeTag()"></a>
+</div>

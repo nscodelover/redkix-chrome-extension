@@ -1,0 +1,408 @@
+.rx-app {
+    opacity: 1;
+}
+
+tags-input .tags {
+    height: initial;
+}
+
+tags-input .host {
+    height: initial;
+}
+
+.ng-scope tags-input .autocomplete {
+    max-width: 250px;
+}
+
+.rxxx-previews .rxxx-preview-area {
+    padding-right: 10px;
+    z-index: 0;
+    /*    height: 100%;*/
+    flex-direction: column;
+}
+
+.sidebar-conversations-header {
+    height: 48px;
+    font-family: FaktPro-Normal;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: white;
+    border-bottom: 1px solid #f1f1f5;
+}
+
+.redkix-logo {
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin: 2px;
+}
+
+
+
+.header-button {
+    color: #52ADE4;
+    letter-spacing: 0.27px;
+    cursor: pointer;
+    margin-bottom: -4px;
+}
+
+.log-out {
+    margin-left: auto;
+    margin-right: 6px;
+}
+
+.conversations {
+    margin-right: 6px;
+}
+
+.close-sidebar {
+    margin-right: 6px;
+    margin-left: auto;
+}
+
+
+.rxxx-discussion .rxxx-toolbar {
+    border-top: 1px solid rgba(200, 206, 209, 0.71);
+}
+
+.rxxx-discussion .rxxx-editor .border-proxy {
+    margin: 3px;
+}
+
+.rxxx-attachments {
+    margin-bottom: 0px;
+}
+
+.rxxx-discussion .rxxx-editor .border-proxy .avatar-and-editor {
+    padding: 6px 6px 6px 0px;
+}
+
+.sidebar-compose-line {
+    height: 42px;
+    background: #FFFFFF;
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.00) 58%, rgba(0, 0, 0, 0.02) 100%);
+    background-image: -o-linear-gradient(rgba(0, 0, 0, 0.00) 58%, rgba(0, 0, 0, 0.02) 100%);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.00) 58%, rgba(0, 0, 0, 0.02) 100%);
+    border-top: 1px solid rgba(200, 206, 209, 0.71);
+    border-bottom: 1px solid rgba(200, 206, 209, 0.71);
+    box-shadow: 0px 1px 2px 0px rgba(64, 70, 75, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.sidebar-compose-line:hover {
+    background: #EEEEEE;
+}
+
+
+.sidebar-new-conversation {
+    font-family: FaktPro-Medium;
+    font-size: 14px;
+    color: #43A0DA;
+    letter-spacing: 0.26px;
+}
+
+.rxxx-discussion .rxxx-content {
+    opacity: 1 !important;
+}
+
+.rxxx-discussion {
+    min-width: auto;
+}
+
+.rxxx-discussion .rxxx-content .rxxx-message-list .rxxx-message-page {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.rxxx-discussion .rxxx-content .rxxx-message-list .rxxx-message-page .rxxx-message-single .rxxx-message-text {
+    padding: 0px 11px 0px 11px;
+}
+
+.compose-modal .bottom-buttons {
+    width: 100%;
+}
+
+.compose-modal .header-inputs .subject-input {
+    font-size: 13px;
+}
+
+.ngdialog-theme-redkix .ngdialog-content {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    width: 356px;
+    border-radius: 0px;
+}
+
+.ngdialog-theme-redkix-confirm.ngdialog-theme-default.ngdialog-theme-compose-error .ngdialog-content {
+    max-width: 250px;
+}
+
+.ngdialog.ngdialog-theme-default.ngdialog-theme-redkix-confirm {
+    padding-bottom: 0px;
+    padding-top: 450px;
+}
+
+.ngdialog-theme-redkix .ngdialog-overlay {
+    top: 33px;
+}
+
+.ngdialog-theme-redkix {
+    top: 33px;
+}
+
+.by-line .date {
+    min-width: 140px;
+}
+
+
+.rxxx-discussion .rxxx-content .rxxx-message-list .rxxx-message-page .rxxx-message-single .rxxx-message-text .message-body {
+    padding-right: 0px;
+}
+
+.rxxx-discussion .rxxx-toolbar .upper-header-holder .upper-header .subject {
+    max-height: 50%;
+    padding: 3px;
+    font-family: "Hurme Geometric Sans";
+    font-size: 16px;
+    font-weight: bold;
+    height: 48px;
+}
+
+.login-body {
+    overflow: hidden;
+}
+
+.rxxx-discussion .rxxx-toolbar .upper-header-holder .upper-header .title-second-line .names {
+    padding-left: 3px;
+}
+
+
+/* bootstrap: _buttons.scss */
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+.rx-spinner.rx-spinner-small {
+    width: 20px;
+    height: 20px;
+}
+
+.login-support-tech-container {
+    margin: 5px;
+}
+
+.icon-supported-tech {
+    background-size: 260px;
+    margin-left: 50px;
+    margin-top: 100px;
+}
+
+
+/*  Animations */
+
+.translate-left {
+    transform: translateX(-322px);
+}
+
+.login-body .login {
+    align-items: flex-start;
+}
+
+.login-body .login .form-signin .form-control {
+    width: 200px;
+    padding: 6px;
+}
+
+.login-body {
+    width: 50%;
+    margin-left: 322px;
+}
+
+.login-label {
+    width: 100%;
+    font-size: 16px;
+    text-align: left;
+}
+
+.login-body .login-page .rx-btn.rx-btn-primary {
+    float: none;
+}
+
+.login-body .login-page .rx-btn .rx-spinner {
+    margin-top: 0px;
+}
+
+.login-body .third-page .info,
+.login-body .fourth-page .info {
+    width: 359px;
+}
+
+.auto-complete {
+    width: 250px;
+}
+
+.extension-options-container {
+    background-color: #EEEEEE;
+    color: #000000;
+    border: 1px solid #CCCCCC;
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.compose-modal .header-inputs .recipients .recipients-div .recipient-label {
+    padding-left: 25px;
+    width: 38px;
+}
+
+.compose-modal .header-inputs .recipients .recipients-div .toggle-CcBcc-btn {
+    right: 6px;
+}
+
+.ngdialog-theme-redkix .ngdialog-content {
+    box-shadow: none;
+}
+
+.rxxx-previews {
+    background-color: transparent;
+    border-top-left-radius: 0px;
+    overflow: hidden;
+}
+
+.rxxx-previews:hover {
+    overflow-y: auto;
+}
+
+.icon-actions-more {
+    margin-right: 13px;
+}
+
+#previewContent {
+    overflow: hidden;
+}
+
+#previewContent:hover {
+    overflow-y: auto;
+}
+
+.compose-modal .header-inputs .subject-input input {
+    padding-left: 25px;
+}
+
+.compose-modal .header-inputs .subject-input textarea {
+    padding-left: 25px;
+    border: none;
+    outline: none;
+    height: 60px;
+    border-bottom: 1px solid #DCDEE3;
+    width: 100%;
+    resize: none;
+}
+
+.ng-scope tags-input .host {
+    margin-left: 0px;
+}
+
+.ng-scope tags-input .host .tags .tag-item {
+    padding: 3px 15px 4px 5px;
+}
+
+/*-----*/
+.close-x-button {
+    margin-left: 20px;
+    margin-right: 14px;
+    outline: none;
+}
+
+.close-x-button1 {
+    margin-left: auto;
+    margin-right: 14px;
+    outline: none;
+}
+
+.back-button {
+    margin-left: 14px;
+    margin-top: 10px;
+    padding-right: 8px;
+    cursor: pointer;
+    outline: none;
+}
+
+.back-button-preview {
+    margin-left: 14px;
+    padding-right: 8px;
+    cursor: pointer;
+    outline: none;
+}
+
+.subject-display {
+    margin: -25px 10px 10px 50px;
+}
+
+@font-face {
+    font-family: 'Hurme Geometric Sans';
+    src: url('/styles/fonts/Hurme Geometric Sans 3/HurmeGeometricSans3-SemiBold.otf') format('opentype');
+    font-weight: 600;
+}
+
+.conversations-title {
+    float: left;
+    color: #314052;
+    letter-spacing: 0.25px;
+    margin-bottom: -4px;
+    font-family: "Hurme Geometric Sans";
+    font-size: 16px;
+    font-weight: 600;
+
+    margin-left: 15px;
+}
+
+.sidebar-icon-compose {
+    margin-left: auto;
+    /*background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAYAAABvVQZ0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABW0lEQVQ4jbXUsWpUQRSA4e9cLioSiJ2N2IiKnU8QgqRQG5vdzSMoWFgEDGKIiqKIQpTFV4hyE2uLFAn4JGJpqUFTuMdicV13773EVU8zM2dm/vkPMwx/E1We9jZP/RzGzKDNPKn0HvuOWnAtPhczw0pvcBYXHXhtN8s/N8sMlUXpi8IO5od5/VKV+4blFrVtL+I30JaHwl08UFgysIMTCh9KHD+00bYnWAXhnu8ISzivG5uhygRzjvlo4Jz0SeoaiMix0p4JK9OHuGQ5dqEcJa/GQaPRlg3hVg3okZ49y8NhObVgurQ+bk7Nhce61kf2rbD7Wdj2SrpRA3qqY20cxPDG6uOCFw2g5zruTIKazaqcw/Ua0IaO23WgZrOwiCMT2Zc6VkagKnP0ElrNuDzW/4a+rtUmo3ZYOiP1Fd5Je3rxtQ3SDuvFlcNsnozZf43/DftV5sTNzBL/1OwHc0BnwXstz3YAAAAASUVORK5CYII=);
+    background-repeat: no-repeat;*/
+    outline: none;
+    margin-top: -1px;
+}
+
+.world-image {
+    width: 68px;
+    height: 68px;
+    margin: 279px auto auto;
+}
+
+.no-conversations {
+	font-family: "Hurme Geometric Sans";
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: 1.4px;
+	margin: 26px auto auto;
+     text-align: center;
+     color: #787a93;
+}
+
+.nobody {
+    font-family: "Hurme Geometric Sans";
+    font-size: 14px;
+    line-height: 1.43;
+    text-align: center;
+    color: #c8c8ca;
+}

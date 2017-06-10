@@ -1,0 +1,8 @@
+{
+    "priority": "0",
+    "name": "simple-url",
+    "urlMatcher": ".*",
+    "subjectTemplate": "'meta.title'",
+    "bodyTemplateFile": "plugins/simpleUrlTemplate.html",
+    "searchQuery": "document.location.href.replace('https://','').replace('http://','')"
+}

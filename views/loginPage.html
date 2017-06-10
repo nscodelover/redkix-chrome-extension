@@ -1,0 +1,30 @@
+<div class="login-page third-page ng-scope">
+    <div class="sidebar-conversations-header">
+        <!--<img src="../redkix-logo.png" class="redkix-logo" />-->
+        <span class="close-sidebar header-button" ng-click="closeSidebar()">Close</span>
+    </div>
+
+    <div class="login-support-tech-container">
+        <div class="icon-supported-tech" style="width: 324px; height: 31px"></div>
+        <div class="info"> Sign in with your Exchange or Office 365 credentials </div>
+    </div>
+    <div>
+        <div class="login container">
+            <form name="loginForm" class="form-signin" role="form" novalidate>
+                <div class="account">
+                    <div>
+                        <div for="email" class="login-label">Email address:</div>
+                        <input required ng-model="credentials.email" name="email" type="text" class="form-control empty" placeholder="example@company.com" autocomplete="on" autofocus="" />
+                        <div for="password" class="login-label">Password:</div>
+                        <input required ng-model="credentials.password" name="password" type="password" class="form-control empty" placeholder="Required" />
+                    </div>
+                    <button type="submit" class="login-button rx-btn rx-btn-primary" name='signin' ng-click="login()" ng-disabled="!loginForm.$valid" ng-class="loginButtonBusy? 'busy': ''">
+                    <span>Sign In</span>
+                    <i class="rx-spinner rx-spinner-small" style="display:none;"></i>
+                </button>
+                    <div class="clear-float"></div>
+                    <div id="google-signin" data-redirecturi="postmessage" data-accesstype="offline"></div>
+                </div>
+            </form>
+        </div>
+    </div>
