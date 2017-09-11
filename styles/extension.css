@@ -1,3 +1,22 @@
+/* @font-face {
+    font-family: 'Hurme Geometric Sans';
+    src: url('/styles/fonts/HurmeGeometric Sans 3/HurmeGeometricSans3-SemiBold.otf') format('opentype');
+    font-weight: 600;
+} */
+
+/* Webfont: Lato-Regular */
+@font-face {
+    font-family: 'LatoWeb';
+    src: url('/styles/fonts/Lato/Lato-Regular.eot'); /* IE9 Compat Modes */
+    src: url('/styles/fonts/Lato/Lato-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/styles/fonts/Lato/Lato-Regular.woff2') format('woff2'), /* Modern Browsers */
+         url('/styles/fonts/Lato/Lato-Regular.woff') format('woff'), /* Modern Browsers */
+         url('/styles/fonts/Lato/Lato-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
 .rx-app {
     opacity: 1;
 }
@@ -23,7 +42,7 @@ tags-input .host {
 
 .sidebar-conversations-header {
     height: 48px;
-    font-family: FaktPro-Normal;
+    font-family: 'LatoWeb';
     font-size: 13px;
     display: flex;
     align-items: center;
@@ -63,9 +82,9 @@ tags-input .host {
 }
 
 
-.rxxx-discussion .rxxx-toolbar {
+/* .rxxx-discussion .rxxx-toolbar {
     border-top: 1px solid rgba(200, 206, 209, 0.71);
-}
+} */
 
 .rxxx-discussion .rxxx-editor .border-proxy {
     margin: 3px;
@@ -100,7 +119,7 @@ tags-input .host {
 
 
 .sidebar-new-conversation {
-    font-family: FaktPro-Medium;
+    font-family: 'LatoWeb';
     font-size: 14px;
     color: #43A0DA;
     letter-spacing: 0.26px;
@@ -127,10 +146,6 @@ tags-input .host {
     width: 100%;
 }
 
-.compose-modal .header-inputs .subject-input {
-    font-size: 13px;
-}
-
 .ngdialog-theme-redkix .ngdialog-content {
     margin-bottom: 0px;
     margin-top: 0px;
@@ -151,9 +166,9 @@ tags-input .host {
     top: 33px;
 }
 
-.ngdialog-theme-redkix {
+/* .ngdialog-theme-redkix {
     top: 33px;
-}
+} */
 
 .by-line .date {
     min-width: 140px;
@@ -165,21 +180,24 @@ tags-input .host {
 }
 
 .rxxx-discussion .rxxx-toolbar .upper-header-holder .upper-header .subject {
-    max-height: 50%;
-    padding: 3px;
-    font-family: "Hurme Geometric Sans";
-    font-size: 16px;
+    /* max-height: 50%; */
+    padding-left: 34px;
+    padding-right: 34px;
+    font-family: latoweb;
+    font-size: 24px;
+    color: #131326;
     font-weight: bold;
-    height: 48px;
+    height: 60px;
+    display: flex;
 }
 
 .login-body {
     overflow: hidden;
 }
 
-.rxxx-discussion .rxxx-toolbar .upper-header-holder .upper-header .title-second-line .names {
+/* .rxxx-discussion .rxxx-toolbar .upper-header-holder .upper-header .title-second-line .names {
     padding-left: 3px;
-}
+} */
 
 
 /* bootstrap: _buttons.scss */
@@ -216,7 +234,7 @@ tags-input .host {
 /*  Animations */
 
 .translate-left {
-    transform: translateX(-322px);
+    transform: translateX(-328px);
 }
 
 .login-body .login {
@@ -230,7 +248,7 @@ tags-input .host {
 
 .login-body {
     width: 50%;
-    margin-left: 322px;
+    margin-left: 328px;
 }
 
 .login-label {
@@ -268,13 +286,8 @@ tags-input .host {
     z-index: 2;
 }
 
-.compose-modal .header-inputs .recipients .recipients-div .recipient-label {
-    padding-left: 25px;
-    width: 38px;
-}
-
 .compose-modal .header-inputs .recipients .recipients-div .toggle-CcBcc-btn {
-    right: 6px;
+    right: 40px;
 }
 
 .ngdialog-theme-redkix .ngdialog-content {
@@ -304,25 +317,22 @@ tags-input .host {
 }
 
 .compose-modal .header-inputs .subject-input input {
-    padding-left: 25px;
+    padding-left: 34px;
+    padding-right: 40px;
 }
 
 .compose-modal .header-inputs .subject-input textarea {
-    padding-left: 25px;
+    padding: 13px 40px 18px 34px;
     border: none;
     outline: none;
     height: 60px;
-    border-bottom: 1px solid #DCDEE3;
-    width: 100%;
-    resize: none;
+    /* border-bottom: 1px solid #DCDEE3; */
+    /* width: 100%;
+    resize: none; */
 }
 
 .ng-scope tags-input .host {
     margin-left: 0px;
-}
-
-.ng-scope tags-input .host .tags .tag-item {
-    padding: 3px 15px 4px 5px;
 }
 
 /*-----*/
@@ -357,18 +367,13 @@ tags-input .host {
     margin: -25px 10px 10px 50px;
 }
 
-@font-face {
-    font-family: 'Hurme Geometric Sans';
-    src: url('/styles/fonts/Hurme Geometric Sans 3/HurmeGeometricSans3-SemiBold.otf') format('opentype');
-    font-weight: 600;
-}
 
 .conversations-title {
     float: left;
     color: #314052;
     letter-spacing: 0.25px;
     margin-bottom: -4px;
-    font-family: "Hurme Geometric Sans";
+    font-family: 'LatoWeb';
     font-size: 16px;
     font-weight: 600;
 
@@ -390,7 +395,7 @@ tags-input .host {
 }
 
 .no-conversations {
-	font-family: "Hurme Geometric Sans";
+	font-family: 'LatoWeb';
 	font-size: 14px;
 	font-weight: 600;
 	letter-spacing: 1.4px;
@@ -400,9 +405,16 @@ tags-input .host {
 }
 
 .nobody {
-    font-family: "Hurme Geometric Sans";
+    font-family: 'LatoWeb';
     font-size: 14px;
     line-height: 1.43;
     text-align: center;
     color: #c8c8ca;
+}
+
+.close-compose-button {
+    margin-top: 30px;
+    outline: none;
+    position: absolute;
+    right: 20px;
 }

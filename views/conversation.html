@@ -7,7 +7,7 @@
 <!--</div>-->
 <!-- Quotation bubbles hidden view. We don't use ng-include since we need it to be ready very fast for the animation effect -->
 <div class="quote-bubbles-container" ng-if="quotationBubblesView.shouldShow">
-    <div flex class="rxxx-toolbar upper-header-holder"> 
+    <div flex class="rxxx-toolbar upper-header-holder">
         <div id="upper-header" class="upper-header">
             <div class="quote-view-title">Quoted message{{quotationBubblesView.quotationBubbles.length > 1?'s':''}} from {{ quotationBubblesView.message.sender.getCorrectTitle(false, quotationBubblesView.message.conversationUID) }}
             </div>
@@ -25,8 +25,21 @@
 <div class="rxxx-toolbar" ng-style="{opacity:quotationBubblesView.shouldShow?0:1}" rx-copy-text-only=".subject">
     <div layout="row" flex class="toolbar-centering">
         <div flex class="upper-header-holder">
-            <div id="upper-header" ng-show="selectedThread" class="upper-header">              
-                <div class="subject">
+            <div id="upper-header" ng-show="selectedThread" class="upper-header">
+                <div class="title-second-line">
+                    <div class="to">To:</div>
+                    <div class="names">
+                        <rx-contact-chip ng-repeat="contact in conversationByline" contact="contact" chip-counter-object="chipCounterObject" chip-index="$index"> </rx-contact-chip>
+                    </div>
+                    <div class="expanded-div">
+                        <span ng-show="othersCounter() > 0" ng-style="{'margin-left':chipCounterObject.offsetsFromRight[chipCounterObject.firstLineContactsCounter-1]+'px'}"> & {{othersCounter() > 1 ? othersCounter() + ' others' : ' one other'}}</span>
+                        <!--button type="button" class="button icon-modal-close-after add-participants icon-add-person" ng-hide="!selectedThread || selectedThread.isChat" data-content="{{popover.title}}" data-template="/views/add-participant.html" data-animation="am-flip-x" data-auto-close="1"
+                            data-placement="bottom" bs-popover data-container="body"></button-->
+                    </div>
+                    <img src="images/rx-close-hover.svg" class="close-compose-button" ng-click="state.name = 'previews';backToPreviews();"></img>
+                </div>
+                <div class="subject">{{(!selectedThread.subject || selectedThread.subject.trim() === '') ? (discussionLoaded ? '(No subject)' : '') : selectedThread.subject | limitTo: 17 }}{{selectedThread.subject.length > 18 ? '...' : ''}}</div>
+                <!-- <div class="subject">
                     <img src="images/backArrow.png" class="back-button" ng-click="state.name = 'previews';backToPreviews();"></img>
                     <p class="subject-display">
                         {{(!selectedThread.subject || selectedThread.subject.trim() === '') ? (discussionLoaded ? '(No subject)' : '') : (selectedThread.subject | cut:true:30:' ...')}}
@@ -37,7 +50,7 @@
                     <div class="expanded-div">
                         <span ng-show="othersCounter() > 0" ng-style="{'margin-left':chipCounterObject.offsetsFromRight[chipCounterObject.firstLineContactsCounter-1]+'px'}"> & {{othersCounter() > 1 ? othersCounter() + ' others' : ' one other'}}</span>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

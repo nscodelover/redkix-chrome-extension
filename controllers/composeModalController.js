@@ -4,7 +4,7 @@ angular.module('redKix').controller('ComposeModalCtrl', ['$scope', '$rootScope',
     '$rxOutbound', '$rxUtilities', '$log', '$rxConfig', '$redKixActiveUserService', '$rxDataApi', 'hotkeys', '$sce',
     function($scope, $rootScope, $timeout, repoService, ngDialog, $q, $filter,
         rxOutbound, rxUtilities, $log, rxConfig, ActiveUser, DataApi, hotkeys, $sce) {
-        // ---------------- User Vars ---------------- // 
+        // ---------------- User Vars ---------------- //
         var CTRL_NAME = 'ComposeModalCtrl',
             repos = repoService.getAllRepos(),
             rxConsts = rxConfig.consts,
@@ -109,7 +109,7 @@ angular.module('redKix').controller('ComposeModalCtrl', ['$scope', '$rootScope',
                 $scope.files = [];
 
                 $scope.openFileDialog = function() {
-                    // The div of the file dialog can show the dialog only if it's being clicked. 
+                    // The div of the file dialog can show the dialog only if it's being clicked.
                     // we cannot put this div inside the popover since it is auto closed.
                     angular.element('#fileDialogDiv').click();
                 }
@@ -294,7 +294,7 @@ angular.module('redKix').controller('ComposeModalCtrl', ['$scope', '$rootScope',
                 }
         */
         function fetchNewMessage(relatedMessage) {
-            // Generating request-uid that will be replaced when we get server ok response                        
+            // Generating request-uid that will be replaced when we get server ok response
             var uid = rxUtilities.generateGUID(),
                 flowType = flowType ? flowType : FLOW_TYPES.NEW_DISCUSSION,
                 parentMessageUID = relatedMessage ? relatedMessage.uid : null,
@@ -437,8 +437,20 @@ angular.module('redKix').controller('ComposeModalCtrl', ['$scope', '$rootScope',
 
             // pull the latest content from tinyMCE right before sending.
             $scope.newMessageJSON[$scope.bodyByFlow] = $scope.tinyMCEEditor.getContent();
-            var entireMsg = $("<div>" + $scope.newMessageJSON[$scope.bodyByFlow] + "</div>");
+            console.log('message-- ', $scope.tinyMCEEditor.getContent());
 
+            var array = $scope.newMessageJSON[$scope.bodyByFlow].split(' ');
+            var sanitizedArray = [];
+
+            for (var i = 0; i <= array.length; i++) {
+                if (undefined !== array[i] && array[i].indexOf('fixed') == -1) {
+                    sanitizedArray.push(array[i]);
+                }
+            }
+
+            $scope.newMessageJSON[$scope.bodyByFlow] = sanitizedArray.join(' ');
+            console.log('message after -- ', $scope.newMessageJSON[$scope.bodyByFlow]);
+            var entireMsg = $("<div>" + $scope.newMessageJSON[$scope.bodyByFlow] + "</div>");
 
             $scope.newMessageJSON.toMailBoxes = fixExternalAndUnknownRecipients($scope.newMessageJSON.toMailBoxes);
             $scope.newMessageJSON.ccMailBoxes = fixExternalAndUnknownRecipients($scope.newMessageJSON.ccMailBoxes);
@@ -629,7 +641,7 @@ angular.module('redKix').controller('ComposeModalCtrl', ['$scope', '$rootScope',
 
                 ed.on('KeyDown', function(e) {
                     var mod = /Mac/.test(navigator.platform) ? e.metaKey : e.ctrlKey;
-                    if (mod && e.keyCode === 13) { 
+                    if (mod && e.keyCode === 13) {
                         sendHotkey(e);
                     }
                 });
@@ -679,7 +691,7 @@ angular.module('redKix').controller('ComposeModalCtrl', ['$scope', '$rootScope',
         });
         // ------------------- END ------------------- //
 
-        // ---------- Controller Initializers -------- // 
+        // ---------- Controller Initializers -------- //
         init();
         // ------------------- END ------------------- //
     }

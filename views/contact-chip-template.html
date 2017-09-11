@@ -1,8 +1,8 @@
 <span class="contact-chip" ng-class="contact.contactType === 'GROUP' ? 'contact-chip-group': contact.isRedkixUser ? 'contact-chip-redkix-user' : 'contact-chip-non-redkix-user'">
-            <span class="contact-chip-status" ng-show="contact.contactType !== 'GROUP' && contact.isRedkixUser" 
-                ng-class="contact.presenceStatus === 'active' ? 'contact-active' : contact.isRedkixUser ? 'contact-not-active' : ''" > 
+            <span class="contact-chip-status" ng-show="contact.contactType !== 'GROUP' && contact.isRedkixUser"
+                ng-class="contact.presenceStatus === 'active' ? 'contact-active' : contact.isRedkixUser ? 'contact-not-active' : ''" >
             </span>
-<span class="contact-chip-text" ng-class="contact.contactType === 'GROUP'?'contact-chip-text-group': 
-                contact.isRedkixUser ? (contact.presenceStatus === 'active' ? 'contact-chip-text-redkix-user-active' : 'contact-chip-text-redkix-user') : 'contact-chip-text-non-redkix-user'">{{contact.getCorrectTitle(true)}}
+<span class="contact-chip-text" ng-class="contact.contactType === 'GROUP' ? 'contact-chip-text-group':
+                contact.isRedkixUser ? (contact.presenceStatus === 'active' ? 'contact-chip-text-redkix-user-active' : 'contact-chip-text-redkix-user') : 'contact-chip-text-non-redkix-user'">{{ contact.getCorrectTitle(true, context) || contact.mailBoxAddress }}
             </span>
 </span>

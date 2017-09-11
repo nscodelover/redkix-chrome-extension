@@ -2,16 +2,23 @@
     <div class="header-inputs">
         <div class="recipients" ng-form="recipients">
             <div class="recipients-div">
-                <label class="recipient-label" ng-style="{opacity: toRecipientHasFocus?1:0.5}" ng-hide="newMessageJSON.toMailBoxes.length > 0">To</label>
-                <tags-input id="to-input" class="group recipient-to" ng-model="newMessageJSON.toMailBoxes" on-tag-added="onTagAdded($tag)" context="newMessageJSON.conversationUID" template="/views/recipient-tags.html" type="email" display-property="mailBoxAddress" key-property="mailBoxAddress"
+                <!-- <label class="recipient-label" ng-style="{opacity: toRecipientHasFocus?1:0.5}" ng-hide="newMessageJSON.toMailBoxes.length > 0">To</label> -->
+                <label class="recipient-label" ng-style="{opacity: toRecipientHasFocus?1:0.5}">To:</label>
+                <!-- <tags-input id="to-input" class="group recipient-to" ng-model="newMessageJSON.toMailBoxes" on-tag-added="onTagAdded($tag)" context="newMessageJSON.conversationUID" template="/views/recipient-tags.html" type="email" display-property="mailBoxAddress" key-property="mailBoxAddress"
                     allow-leftover-text="false" allowed-tags-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$" replace-spaces-with-dashes="false" add-on-paste="true" enable-editing-last-tag="false" spellcheck="false" required-any="recipientsFields">
                     <auto-complete source="loadTags($query)" context="newMessageJSON.conversationUID" enable-editing-last-tag="true" add-on-space="true" template="/views/autocomplete-recipient-tags.html" min-length="0" max-results-to-show="5" load-on-focus="true" required
                         style="width:400px">
                     </auto-complete>
+                </tags-input> -->
+                <tags-input id="to-input" class="group recipient-to rx-custom-tags" ng-model="newMessageJSON.toMailBoxes" on-tag-added="onTagAdded($tag)" context="newMessageJSON.conversationUID" template="/views/recipient-tags.html" type="email" display-property="mailBoxAddress"
+                    key-property="mailBoxAddress" allow-leftover-text="false" allowed-tags-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$" replace-spaces-with-dashes="false" add-on-paste="true" enable-editing-last-tag="false" spellcheck="false" required-any="recipientsFields"
+                    rx-autofocus="!quotesAreLoading && (!newMessageJSON.toMailBoxes.length || ngDialogData.modifyParticipants)">
+                    <auto-complete source="loadTags($query)" context="newMessageJSON.conversationUID" enable-editing-last-tag="true" add-on-space="true" template="/views/autocomplete-recipient-tags.html" min-length="0" max-results-to-show="5" load-on-focus="true" required>
+                    </auto-complete>
                 </tags-input>
-                <div ng-click="toggleCcBcc()" class="toggle-CcBcc-btn" tabindex="-1">cc/bcc</div>
+                <!-- <div ng-click="toggleCcBcc()" class="toggle-CcBcc-btn" tabindex="-1">cc/bcc</div> -->
             </div>
-            <div class="recipients-div" ng-show="CcBcc">
+            <!-- <div class="recipients-div" ng-show="CcBcc">
                 <label class="recipient-label" ng-style="{opacity: ccRecipientHasFocus?1:0.5}">Cc</label>
                 <tags-input id="cc-input" ng-model="newMessageJSON.ccMailBoxes" on-tag-added="onTagAdded($tag)" context="newMessageJSON.conversationUID" template="/views/recipient-tags.html" type="email" allow-leftover-text="false" display-property="mailBoxAddress" key-property="mailBoxAddress"
                     allowed-tags-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$" replace-spaces-with-dashes="false" add-on-paste="true" enable-editing-last-tag="false" spellcheck="false" required-any="recipientsFields">
@@ -26,10 +33,10 @@
                     <auto-complete source="loadTags($query)" context="newMessageJSON.conversationUID" template="/views/autocomplete-recipient-tags.html" min-length="0" max-results-to-show="5" load-on-focus="true">
                     </auto-complete>
                 </tags-input>
-            </div>
+            </div> -->
         </div>
         <div class="subject-input" flex>
-            <textarea ng-model="newMessageJSON.subject" spellcheck="true" placeholder="Subject"></textarea>
+            <input ng-model="newMessageJSON.subject" spellcheck="true" placeholder="Subject">
         </div>
     </div>
     <div flex layout class="editor-area drag-drop-files-box" spellcheck="true" ngf-drop ng-model="myFiles" ngf-multiple="true" ngf-drag-over-class="{accept:'dragover', reject:'dragover-err'}" ngf-allow-dir="false">
@@ -43,13 +50,13 @@
         <div class="attachment-wrapper" ng-repeat="attachment in showingFiles = (files | filter : {ignore : '!true'})" ng-hide="attachment.hideFromView" ng-include="'/views/attachment.html'"></div>
     </div>
     <div class="bottom-buttons" layout id="bottomButtonDiv">
-        <!--div ng-model="myFiles" ngf-select ngf-multiple="true">
+        <!-- <div ng-model="myFiles" ngf-select ngf-multiple="true">
             <span class="btn-attach">
-            <i class="fa fa-paperclip fa-rotate-90"></i>Attach
+            <i class="fa fa-paperclip fa-rotate-90"></i>
         </span>
-        </div-->
+        </div> -->
         <!-- The file dialog Div. Should be outside the popover since it is auto closed. When clicking on the 'Upload' button we trigger a click on this element -->
-        <div ng-model="myFiles" ngf-select ngf-multiple="true" id="fileDialogDiv"></div>
+        <!-- <div ng-model="myFiles" ngf-select ngf-multiple="true" id="fileDialogDiv"></div> -->
         <!-- <span class="attach" ng-model="mySmartFiles" ngf-select ngf-multiple="true">
                             <i class="fa fa-paperclip"></i>
                             Smart Attach</span>
@@ -60,7 +67,7 @@
         <div flex style="direction:rtl;display:flex;justify-content:center;">
             <!--- Need to put the buttons in the reverse order so the tabindex will work-->
             <button class="rx-btn rx-btn-primary" ng-click="postMessage()" value="Post" id='sendBtn'>SEND</button>
-            <button class="rx-btn rx-btn-tertiary " ng-click="discardPost() " value="Post " id='cancelBtn'>CANCEL</button>
+            <button class="rx-btn rx-btn-tertiary" ng-click="discardPost() " value="Post " id='cancelBtn'>DISCARD</button>
         </div>
     </div>
 </div>

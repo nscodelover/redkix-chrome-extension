@@ -965,7 +965,7 @@
   font-family: "Hurme Geometric Sans";
   font-weight: 600;
   font-size: 12px;
-  color: #3B3C54;
+  color: #c4c5cc;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -2271,50 +2271,60 @@ rx-contact-chip .contact-chip .contact-chip-status {
   vertical-align: middle;
   align-self: center;
 }
+
+rx-contact-chip .contact-chip .contact-chip-status.contact-active {
+  background-color: #04FBA8;
+}
+/* line 42, ../../app/styles/_rx-contact-chip.scss */
+rx-contact-chip .contact-chip .contact-chip-status.contact-not-active {
+  background-color: #C4C5CC;
+}
+
 /* line 603, ../../app/styles/_nav.scss */
 rx-contact-chip .contact-chip .contact-chip-text {
   margin-left: 5px;
-  font-size: 13px;
+  font-size: 12px;
   margin-right: 10px;
   display: inline-block;
   align-self: center;
 }
 /* line 610, ../../app/styles/_nav.scss */
 rx-contact-chip .contact-chip .contact-chip-text-redkix-user {
-  color: #999999;
-  font-family: "Hurme Geometric Sans";
-	font-size: 11px;
-	font-weight: 600;
+  color: #00bd7d;
+  font-family: latoweb;
+  font-size: 12px;
+  font-weight: bold;
   margin-top: 3px;
 }
 
 .contact-chip-text-redkix-user-active {
-  color: #4CC425;
-  font-family: "Hurme Geometric Sans";
-	font-size: 11px;
-	font-weight: 600;
+  color: #00bd7d;
+  font-family: latoweb;
+	font-size: 12px;
+	font-weight: bold;
   margin-top: 3px;
 }
 /* line 613, ../../app/styles/_nav.scss */
 rx-contact-chip .contact-chip .contact-chip-text-non-redkix-user {
-  color: #6F7986;
+  background-color: #F1F1F5;
+  color: #787A93;
 }
 /* line 617, ../../app/styles/_nav.scss */
 rx-contact-chip .contact-chip.contact-chip-group {
-  background: rgba(136, 14, 164, 0.16);
-  color: #880ea4;
-  padding-left: 5px;
+  color: #CC1BA1;
+  background-color: #FFEFFB;
+  /* padding-left: 5px; */
 }
 /* line 623, ../../app/styles/_nav.scss */
 rx-contact-chip .contact-chip.contact-chip-redkix-user {
-  /*background: rgba(80, 166, 217, 0.16);*/
-  /*background-color: #E5FEF6;*/
+  background-color: #E5FEF6;
+  color: #00BD7D;
 }
 /* line 627, ../../app/styles/_nav.scss */
 rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
-  background: rgba(149, 164, 177, 0.2);
+  background-color: #F1F1F5;
+  color: #787A93;
 }
-
 /* **************** *
  * NEW INBOX COLORS *
  * **************** *
@@ -3025,7 +3035,7 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
   height: 15px;
   width: 15px;
   /* left: 5px; */
-   top: -1px; 
+   top: -1px;
   transform: none;
   z-index: 3;
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%3Csvg%20width%3D%2215px%22%20height%3D%2215px%22%20viewBox%3D%220%200%2015%2015%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%20%20%20%20%20%20%20%20%3Ctitle%3EIcons%2FInbox%2FMessage%20Types%2FChannels%20Only%20Unread%3C%2Ftitle%3E%20%20%20%20%3Cdesc%3ECreated%20with%20Sketch%20Beta.%3C%2Fdesc%3E%20%20%20%20%3Cdefs%3E%3C%2Fdefs%3E%20%20%20%20%3Cg%20id%3D%22Symbols%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Components%22%20transform%3D%22translate%28-539.000000%2C%20-1271.000000%29%22%20fill%3D%22%2300AAFF%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Icons%2FInbox%2FMessage-Types%2FGroup-Unread%22%20transform%3D%22translate%28539.000000%2C%201271.000000%29%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Group-Icon%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M6%2C7.00579834%20L6%2C11.9942017%20C6%2C12.5479924%206.45168854%2C13%207.00579834%2C13%20L11.9942017%2C13%20C12.5479924%2C13%2013%2C12.5483115%2013%2C11.9942017%20L13%2C7.00579834%20C13%2C6.45200763%2012.5483115%2C6%2011.9942017%2C6%20L7.00579834%2C6%20C6.45200763%2C6%206%2C6.45168854%206%2C7.00579834%20Z%20M4%2C7.00579834%20C4%2C5.34574176%205.34881592%2C4%207.00579834%2C4%20L11.9942017%2C4%20C13.6542582%2C4%2015%2C5.34881592%2015%2C7.00579834%20L15%2C11.9942017%20C15%2C13.6542582%2013.6511841%2C15%2011.9942017%2C15%20L7.00579834%2C15%20C5.34574176%2C15%204%2C13.6511841%204%2C11.9942017%20L4%2C7.00579834%20Z%22%20id%3D%22Rectangle%22%3E%3C%2Fpath%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M11%2C4.0963411%20L11%2C2.99859686%20C11%2C1.34129528%209.65425824%2C0%207.99420166%2C0%20L3.00579834%2C0%20C1.34881592%2C0%200%2C1.34574176%200%2C3.00579834%20L0%2C7.99420166%20C0%2C9.65118408%201.34709985%2C11%203.00883173%2C11%20L4.05243424%2C11%20L4.05243424%2C9%20L3.00883173%2C9%20C2.452596%2C9%202%2C8.54754087%202%2C7.99420166%20L2%2C3.00579834%20C2%2C2.45168854%202.45200763%2C2%203.00579834%2C2%20L7.99420166%2C2%20C8.55131026%2C2%209%2C2.44748872%209%2C2.99859686%20L9%2C4.0963411%20L11%2C4.0963411%20Z%22%20id%3D%22Rectangle-Copy%22%3E%3C%2Fpath%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%3C%2Fg%3E%3C%2Fsvg%3E");
@@ -3035,7 +3045,7 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
 .rxxx-previews .rxxx-preview-area .rxxx-preview-list .rxxx-preview-item .rxxx-notification .notification-item.read-notification {
   height: 15px;
   width: 15px;
-  top: -1px; 
+  top: -1px;
   transform: none;
   z-index: 3;
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%3Csvg%20width%3D%2215px%22%20height%3D%2215px%22%20viewBox%3D%220%200%2015%2015%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%20%20%20%20%20%20%20%20%3Ctitle%3EIcons%2FInbox%2FMessage%20Types%2FChannels%20Only%20Read%3C%2Ftitle%3E%20%20%20%20%3Cdesc%3ECreated%20with%20Sketch%20Beta.%3C%2Fdesc%3E%20%20%20%20%3Cdefs%3E%3C%2Fdefs%3E%20%20%20%20%3Cg%20id%3D%22Symbols%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Components%22%20transform%3D%22translate%28-539.000000%2C%20-1296.000000%29%22%20fill%3D%22%23C4C5CC%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Icons%2FInbox%2FMessage-Types%2FGroup-Read%22%20transform%3D%22translate%28539.000000%2C%201296.000000%29%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Group-Icon%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M6%2C7.00579834%20L6%2C11.9942017%20C6%2C12.5479924%206.45168854%2C13%207.00579834%2C13%20L11.9942017%2C13%20C12.5479924%2C13%2013%2C12.5483115%2013%2C11.9942017%20L13%2C7.00579834%20C13%2C6.45200763%2012.5483115%2C6%2011.9942017%2C6%20L7.00579834%2C6%20C6.45200763%2C6%206%2C6.45168854%206%2C7.00579834%20Z%20M4%2C7.00579834%20C4%2C5.34574176%205.34881592%2C4%207.00579834%2C4%20L11.9942017%2C4%20C13.6542582%2C4%2015%2C5.34881592%2015%2C7.00579834%20L15%2C11.9942017%20C15%2C13.6542582%2013.6511841%2C15%2011.9942017%2C15%20L7.00579834%2C15%20C5.34574176%2C15%204%2C13.6511841%204%2C11.9942017%20L4%2C7.00579834%20Z%22%20id%3D%22Rectangle%22%3E%3C%2Fpath%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M11%2C4.0963411%20L11%2C2.99859686%20C11%2C1.34129528%209.65425824%2C0%207.99420166%2C0%20L3.00579834%2C0%20C1.34881592%2C0%200%2C1.34574176%200%2C3.00579834%20L0%2C7.99420166%20C0%2C9.65118408%201.34709985%2C11%203.00883173%2C11%20L4.05243424%2C11%20L4.05243424%2C9%20L3.00883173%2C9%20C2.452596%2C9%202%2C8.54754087%202%2C7.99420166%20L2%2C3.00579834%20C2%2C2.45168854%202.45200763%2C2%203.00579834%2C2%20L7.99420166%2C2%20C8.55131026%2C2%209%2C2.44748872%209%2C2.99859686%20L9%2C4.0963411%20L11%2C4.0963411%20Z%22%20id%3D%22Rectangle-Copy%22%3E%3C%2Fpath%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%3C%2Fg%3E%3C%2Fsvg%3E");
@@ -3082,10 +3092,10 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
   /*font-family: "Fakt Pro";
   font-size: 14px;
   font-weight: normal;*/
-  font-family: "Hurme Geometric Sans";
-  font-size: 15px;
-  font-weight: bold;
-  letter-spacing: 0.3px;
+  font-family: latoweb;
+  font-size: 16px;
+  font-weight: 400;
+  word-spacing: 0;
   line-height: 19px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -3113,17 +3123,17 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
 }
 /* line 733, ../../app/styles/_previews.scss */
 .rxxx-previews .rxxx-preview-area .rxxx-preview-list .rxxx-preview-item .subject {
-  line-height: 25px;
-  color: #787a93;
-  font-family: "Hurme Geometric Sans";
+  /* line-height: 25px; */
+  color: #454760;
+  font-family: latoweb;
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  line-height: 19px;
+  font-weight: 400;
+  word-spacing: 0;
+  /* line-height: 19px; */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  height: 19px;
+  /* height: 19px; */
 }
 /* line 744, ../../app/styles/_previews.scss */
 .rxxx-previews .rxxx-preview-area .rxxx-preview-list .rxxx-preview-item .subject .chat {
@@ -3140,16 +3150,17 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
 }
 /* line 756, ../../app/styles/_previews.scss */
 .rxxx-previews .rxxx-preview-area .rxxx-preview-list .rxxx-preview-item .body {
-  font-family: "Hurme Geometric Sans";
+  font-family: latoweb;
   font-size: 13px;
-  font-weight: 600;
-  line-height: 20px;
+  font-weight: 400;
+  font-style: normal;
+  /* line-height: 20px; */
   color: #787a93;
-  height: 19px;
-  letter-spacing: 0.25px;
-  line-height: 19px;
+  /* height: 19px; */
+  word-spacing: 0;
+  /* line-height: 19px; */
   overflow: hidden;
-  padding-top: 2px;
+  /* padding-top: 2px; */
   text-overflow: ellipsis;
   white-space: nowrap;
   transition: opacity 350ms;
@@ -3641,7 +3652,8 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
   font-size: 13px;
   min-width: 110px;
   padding-top: 2px;
-  display: inline-block;
+  display: none;
+  /* display: inline-block; */
 }
 /* line 397, ../../app/styles/_discussion.scss */
 .rxxx-discussion .button {
@@ -3730,8 +3742,8 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
 .rxxx-discussion .rxxx-toolbar {
   overflow: hidden;
   background-color: #FFFFFF;
-  border-bottom: 1px solid #EBECEE;
-  /*min-height: 85px;*/
+  /* border-bottom: 1px solid #EBECEE; */
+  min-height: 120px;
   flex-shrink: 0;
 }
 /* line 476, ../../app/styles/_discussion.scss */
@@ -3758,18 +3770,21 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
   color: black;
 }
 /* line 493, ../../app/styles/_discussion.scss */
+
+/* -----------*/
+
 .rxxx-discussion .rxxx-toolbar .upper-header-holder .upper-header .subject {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   align-items: center;
-  /*border-bottom: 1px solid #EBECEE;*/
+  /* border-bottom: 1px solid #EBECEE; */
   color: #33373B;
   display: -webkit-box;
   font-size: 15px;
   letter-spacing: 0.3px;
   line-height: 22px;
-  max-height: 58px;
-  /*min-height: 44px;*/
+  /* max-height: 58px;
+  min-height: 44px; */
   overflow: hidden;
   padding: 10px 20px;
   text-overflow: ellipsis;
@@ -3781,18 +3796,24 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
 .rxxx-discussion .rxxx-toolbar .upper-header-holder .upper-header .title-second-line {
   display: flex;
   flex-direction: row;
+  /* height: 60px; */
 }
+
+.rxxx-discussion .rxxx-toolbar .upper-header-holder .upper-header .title-second-line .to {
+  padding: 29px 5px 15px 34px;
+  color: #787a93;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 /* line 514, ../../app/styles/_discussion.scss */
-.rxxx-discussion .rxxx-toolbar .upper-header-holder .upper-header .subject .names {
+.rxxx-discussion .rxxx-toolbar .upper-header-holder .upper-header .title-second-line .names {
   font-size: 12px;
   color: #818587;
   letter-spacing: 0.27px;
-  line-height: 12px;
-  padding-top: 5px;
-  height: 40px;
-  padding-left: 20px;
-  margin-top: -20px;
-  margin-left: 20px;
+  line-height: 20px;
+  padding-top: 22.5px;
+  /* height: 40px; */
 }
 /* line 527, ../../app/styles/_discussion.scss */
 .rxxx-discussion .rxxx-content {
@@ -3947,7 +3968,7 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
   font-weight: 500;
   color: #454760;
   width: 0px;
-  overflow-x: auto;
+  /* overflow-x: auto; */
   padding-left: 40px;
   word-wrap: break-word;
   /* make message content stay inside the message */
@@ -3976,7 +3997,7 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
 /* line 682, ../../app/styles/_discussion.scss */
 .rxxx-discussion .rxxx-content .rxxx-message-list .rxxx-message-page .rxxx-message-single .rxxx-message-text .message-body p {
   color: #454760 !important;
-  /*font-weight: normal;*/  
+  /*font-weight: normal;*/
   font-family: Helvetica, Arial, sans-serif;
   font-size: 15px;
   line-height: 1.5;
@@ -4809,26 +4830,27 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
 .compose-modal .header-inputs .recipients .recipients-div {
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid #c6c8cc;
+  /* border-bottom: 1px solid #c6c8cc; */
   background-color: #FFFFFF;
   padding: 0px;
   margin: 0px;
+  /* height: 60px; */
 }
 /* line 43, ../../app/styles/_compose-modal.scss */
 .compose-modal .header-inputs .recipients .recipients-div .recipient-label {
-  height: 50px;
-  padding-top: 17px;
-  padding-left: 15px;
-  color: metaFont;
+  padding-top: 26px;
+  padding-left: 34px;
+  padding-right: 10px;
+  color: #787a93;
   font-size: 12px;
-  font-weight: normal;
-  width: 36px;
-  text-align: right;
+  font-weight: bold;
+  /* width: 36px;
+  text-align: right; */
 }
 /* line 53, ../../app/styles/_compose-modal.scss */
 .compose-modal .header-inputs .recipients .recipients-div .toggle-CcBcc-btn {
   font-size: 13px;
-  color: rgba(78, 164, 217, 0.5);
+  color: #43A0DA;
   position: absolute;
   right: 15px;
   top: 16px;
@@ -4839,9 +4861,13 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
 }
 /* line 65, ../../app/styles/_compose-modal.scss */
 .compose-modal .header-inputs .subject-input {
-  padding-bottom: 24px;
-  padding-left: 0px;
-  font-size: 18px;
+    /* padding-bottom: 24px; */
+    padding-left: 0px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: latoweb;
+    color: #131326;
+    text-align: left;
 }
 /* line 69, ../../app/styles/_compose-modal.scss */
 .compose-modal .header-inputs .subject-input label {
@@ -4853,11 +4879,12 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
 }
 /* line 76, ../../app/styles/_compose-modal.scss */
 .compose-modal .header-inputs .subject-input input {
+  text-overflow: ellipsis;
   padding-left: 15px;
   border: none;
   outline: none;
   height: 60px;
-  border-bottom: 1px solid #DCDEE3;
+  /* border-bottom: 1px solid #DCDEE3; */
   width: 100%;
 }
 /* line 85, ../../app/styles/_compose-modal.scss */
@@ -4872,8 +4899,8 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
 .compose-modal .editor-area {
   overflow: auto;
   width: 100%;
-  padding-left: 14px;
-  padding-right: 14px;
+  padding-left: 34px;
+  padding-right: 34px;
 }
 /* line 99, ../../app/styles/_compose-modal.scss */
 .compose-modal .editor-area .contenteditable {
@@ -4881,6 +4908,7 @@ rx-contact-chip .contact-chip.contact-chip-non-redkix-user {
   position: initial !important;
   word-wrap: break-word;
   width: 100%;
+  border-top: solid 1px #f1f1f5;
   /* @ServerSideClass */
 }
 /* line 105, ../../app/styles/_compose-modal.scss */
@@ -12545,9 +12573,9 @@ html, body {
   overflow: auto;
 }
 /* line 4795, ../../app/styles/main.scss */
-.ng-scope tags-input.recipient-to {
+/* .ng-scope tags-input.recipient-to {
   margin-right: 50px;
-}
+} */
 /* line 4798, ../../app/styles/main.scss */
 .ng-scope tags-input .host {
   margin: 0px;
@@ -12556,7 +12584,8 @@ html, body {
 }
 /* line 4802, ../../app/styles/main.scss */
 .ng-scope tags-input .host .tags {
-  padding-bottom: 9px;
+  /* padding-bottom: 9px; */
+  /* margin-bottom: 19px; */
   -webkit-appearance: none;
   border: none;
   box-shadow: none;
@@ -12567,15 +12596,10 @@ html, body {
 }
 /* line 4808, ../../app/styles/main.scss */
 .ng-scope tags-input .host .tags .tag-item {
-  position: relative;
-  padding: 4px 15px 4px 7px;
-  text-align: center;
-  height: 34px;
-  background: #eaebee;
-  border-radius: 4px;
-  border: none;
-  margin-right: 3px;
-  margin-left: 3px;
+    margin: 2px 0;
+    border: none;
+    padding: 0;
+    background: 0 0;
 }
 /* line 4809, ../../app/styles/main.scss */
 .ng-scope tags-input .host .tags .tag-item:hover a {
@@ -12588,9 +12612,11 @@ html, body {
 }
 /* line 4825, ../../app/styles/main.scss */
 .ng-scope tags-input .host .tags .tag-item span {
-  font-family: "Fakt Pro";
-  font-size: 13px;
+  font-family: latoweb;
+  font-size: 12px;
+  font-weight: bold;
   margin-left: 2px;
+  padding-left: 5px;
 }
 /* line 4830, ../../app/styles/main.scss */
 .ng-scope tags-input .host .tags .tag-item .remove-button {
@@ -12616,26 +12642,28 @@ html, body {
 /* line 4851, ../../app/styles/main.scss */
 .ng-scope tags-input .host .tags .input {
   padding-left: 2px;
-  font-family: "Fakt Pro";
-  font-size: 13px;
+  margin-top: 7px;
+  font-family: latoweb;
+  font-size: 12px;
+  font-weight: bold;
   color: #818587;
   line-height: 15px;
   background: inherit;
   float: left;
-  height: 30px;
+  height: 20px;
 }
 /* line 4860, ../../app/styles/main.scss */
 .ng-scope tags-input .host .tags .input.invalid-tag {
   background-color: #DC4B58;
   color: #FFFFFF;
-  height: 30px;
-  border-radius: 4px;
+  height: 20px;
+  border-radius: 15px;
   padding-left: 10px;
 }
 /* line 4868, ../../app/styles/main.scss */
-.ng-scope tags-input .host .tags .tag-list {
+/* .ng-scope tags-input .host .tags .tag-list {
   margin: 9px 0px 9px 0px;
-}
+} */
 /* line 4873, ../../app/styles/main.scss */
 .ng-scope tags-input .autocomplete {
   border: 1px solid rgba(147, 160, 173, 0.72);
@@ -12746,8 +12774,8 @@ html, body {
     padding-left: 16px;
     text-transform: uppercase;
     color: #C4C5CC;
-    font-family: "Hurme Geometric Sans";
-    font-weight: 600;
+    font-family: latoweb;
+    font-weight: 500;
     font-style: normal;
     font-size: 12px;
 }

@@ -1,6 +1,6 @@
-<div style="width:644px;background-color:transparent;" id="sidebar" ng-app="redKix" ng-controller="sidebarController" ng-init="state={name:'previews'}">
+<div style="width:660px;background-color:transparent;" id="sidebar" ng-app="redKix" ng-controller="sidebarController" ng-init="state={name:'previews'}">
     <div ng-controller="loginCtrl" class="rx-app" style="height:100%;display:flex;transition: transform .6s;" ng-class="state.name==='discussion'?'translate-left':''">
-        <span ng-include="'previews.html'" ng-controller="previewsCtrl" ng-if="!isLoggedOut" class="rxxx-previews" style="width:322px"></span>
+        <span ng-include="'previews.html'" ng-controller="previewsCtrl" ng-if="!isLoggedOut" class="rxxx-previews" style="width:328px"></span>
         <md-content layout="column" flex class="rxxx-discussion" ng-include="'/views/conversation.html'" ng-controller="discussionCtrl" style="height:100%" ng-if="!isLoggedOut">
         </md-content>
         <div class="login-body" ng-show="isLoggedOut" ng-include="'/views/loginPage.html'">

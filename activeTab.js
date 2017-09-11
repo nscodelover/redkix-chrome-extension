@@ -2,6 +2,7 @@ var COOKIE_NAME = 'rxSF';
 var SF_KEY_NAME = 'rxSF';
 var RX_SECRET = 'rxSecret';
 var COOKIE_DAYS_OF_LIFE = 365 * 3;
+var leftSideBar = false;
 
 var discussLogoURL, composeCloseURL, composeModalURL,
     autoCompletePartialURL, tagsInputPartialURL, editorStyleURL, parseResult, deskLogoURL,
@@ -24,6 +25,13 @@ if (document.title !== 'RedKix') {
 
             // Make sure we are in the right frame of the site (according to the url)
             if (request.url !== document.location.href) return;
+
+            if (request.url.indexOf("redkix.quip.com") > -1) {
+                leftSideBar = true
+            }
+            else {
+                leftSideBar = false;
+            }
 
             switch (request.operation) {
                 case 'rx-create-sidebar':
@@ -74,6 +82,9 @@ if (document.title !== 'RedKix') {
 
                 case 'rx-get-site-meta-data':
                     var metadata = getSiteMetadata();
+                    if(metadata.url == "redkix.quip.com") {
+                        metadata.image = "https://image.ibb.co/du3T1v/doc_icon.png";
+                    }
                     sendResponse(metadata);
                     return true;
                 case 'rx-eval-expressions':
@@ -140,7 +151,7 @@ function getSiteMetadata() {
     }, {
         name: "description",
     }, {
-        name: "image",
+        name: "image"
     }, {
         name: "site_name"
     }];
@@ -218,12 +229,18 @@ function createSidebar() {
             iframe.src = chrome.runtime.getURL('views/sidebar-frame.html');
 
             // Some styles for a fancy sidebar
-            addCssClassToDoc(dissapearClass, 'transform:translateX(342px)')
+            if(leftSideBar) {
+                addCssClassToDoc(dissapearClass, 'transform:translateX(-342px)');
+            }
+            else {
+                addCssClassToDoc(dissapearClass, 'transform:translateX(342px)');
+                addCssClassToDoc(htmlShrinkClass, 'margin-right:328px;position:relative;');
+            }
             iframe.style.display = 'none';
             setFrameStyle(iframe)
 
             // classes for shrinnking the main html when the sidebar is visible
-            addCssClassToDoc(htmlShrinkClass, 'margin-right:322px;position:relative;');
+            //addCssClassToDoc(htmlShrinkClass, 'margin-right:322px;position:relative;');
             addCssClassToDoc(animateHtmlMarginClass, 'transition: margin-right 0.6s;');
             document.documentElement.className += " " + animateHtmlMarginClass;
             setTimeout(function() {
@@ -264,18 +281,26 @@ function removeFixedPositionElements(fixedPositionSelectors, retry) {
 }
 
 function setFrameStyle(iframe) {
-    iframe.style.right = "0";
     iframe.style.top = "0";
     iframe.style.position = "fixed";
     iframe.style.height = "100%";
-    iframe.style.width = "322px";
+    iframe.style.width = "330px";
     iframe.style.zIndex = "2999999999";
     iframe.style.backgroundColor = "aliceblue";
     iframe.style.transition = "transform .6s";
     iframe.style.borderLeft = "1px solid #EBECEE";
     iframe.style.borderTop = "1px solid #EBECEE";
-    iframe.style.borderRight = "none";
+    iframe.style.borderRight = "1px solid #EBECEE";
     iframe.style.borderRadius = "5px 0px 0px 5px";
+
+    if(leftSideBar) {
+        iframe.style.left = "0";
+        iframe.style.marginTop = "66px";
+        iframe.style.height = "calc(100% - 66px)";
+    }
+    else {
+        iframe.style.right = "0";
+    }
 }
 
 function addCssClassToDoc(className, cssProperties) {
@@ -283,8 +308,6 @@ function addCssClassToDoc(className, cssProperties) {
     style.type = 'text/css';
     style.innerHTML = '.' + className + ' { ' + cssProperties + ' }';
     document.getElementsByTagName('head')[0].appendChild(style);
-
-
 }
 
 function hideSidebar() {
@@ -295,7 +318,6 @@ function hideSidebar() {
 }
 
 function showSidebar() {
-
     var iframe = document.getElementById("rxSidebarFrame");
     if (iframe) {
         iframe.className = ''; // remove translateX;
@@ -313,7 +335,7 @@ function expandSidebarToFullWidth() {
 function shrinkSidebarToRegularWidth() {
     var iframe = document.getElementById("rxSidebarFrame");
     setFrameStyle(iframe);
-    iframe.style.width = "322px";
+    iframe.style.width = "328px";
 }
 
 function onScrollExtensionArea() {

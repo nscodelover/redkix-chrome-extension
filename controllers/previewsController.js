@@ -61,6 +61,7 @@ angular.module('redKix').controller('previewsCtrl', ['$scope', '$rootScope', '$q
          */
         function selectPreview(conversation, thread, resetAllSelections, useSavedSelection) {
             $log.debug('select preview called', conversation, thread);
+            console.log('select preview called', conversation, thread);
 
             var passedConversation, passedThread;
 

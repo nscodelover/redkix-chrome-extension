@@ -154,6 +154,7 @@ function navigationOccured(data) {
             });
         });
 
+        toggle = false;
         sendMessageToActiveTab({
             operation: 'rx-create-sidebar'
         }, function(a) {});
@@ -378,7 +379,6 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
         callbackForNavigationEvent[tabId]();
         callbackForNavigationEvent[tabId] = null;
     }
-
     navigationOccured({});
 });
 
@@ -435,8 +435,9 @@ chrome.browserAction.onClicked.addListener(
     function(tab) {
         var op = '';
         toggle = !toggle;
+
         if (toggle) {
-            op = 'rx-show-sidebar';     
+            op = 'rx-show-sidebar';
         } else {
             op = 'rx-hide-sidebar';
         }
@@ -543,7 +544,6 @@ chrome.commands.onCommand.addListener(function(command) {
 chrome.tabs.onActivated.addListener(function(activeInfo) {
     chrome.tabs.get(activeInfo.tabId, function(tab) {
         updateExtensionIconBadgeAccordingToData(tabIdToData[activeInfo.tabId], tab);
-
     })
 });
 
